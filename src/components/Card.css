@@ -1,0 +1,21 @@
+.card {
+  box-shadow: 2px 2px 5px gray;
+  border: 1px solid white;
+  width: fit-content;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card.correct {
+  opacity: 0.4;
+  cursor: default;
+}
+.card.current {
+  color: red;
+}
+.card.wrong {
+  background-color: rgb(255, 0, 0);
+  border: red solid 1px;
+}

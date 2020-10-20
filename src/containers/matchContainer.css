@@ -1,0 +1,15 @@
+.words-container {
+  display: flex;
+}
+
+.english-container {
+  flex-direction: column;
+  width: 50%;
+  margin: 0 30px;
+  align-items: flex-end;
+}
+.french-container {
+  flex-direction: column;
+  width: 50%;
+  margin: 0 30px;
+}

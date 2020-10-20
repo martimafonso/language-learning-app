@@ -1,0 +1,31 @@
+.leave-btn {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  margin: auto;
+  cursor: pointer;
+}
+
+.leave-btn:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: "";
+  background-color: black;
+  height: 2px;
+  width: 15px;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.leave-btn:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: "";
+  background-color: black;
+  height: 2px;
+  width: 15px;
+  transform: translate(-50%, -50%) rotate(45deg);
+}

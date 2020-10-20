@@ -1,0 +1,10 @@
+.header-container {
+  background-color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-container > div {
+  flex: 1;
+}
