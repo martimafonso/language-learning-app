@@ -1,24 +1,9 @@
 .App {
   text-align: center;
   max-width: 1000px;
-  padding: 10px;
   margin: auto;
-}
-
-.flex-container-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .flex-container {
   display: flex;
-}
-
-.inline {
-  display: inline;
-}
-
-.flex1 {
-  flex: 1;
 }

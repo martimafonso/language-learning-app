@@ -1,8 +1,26 @@
 import React, { useState } from "react";
 import Card from "../components/Card";
 import Points from "../components/Points";
-import "./matchContainer.css";
+import styled from "styled-components";
 
+const WordsContainer = styled.div`
+  display: flex;
+`;
+
+const EnglishContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 30px;
+  align-items: flex-end;
+`;
+
+const FrenchContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 30px;
+`;
 function MatchContainer() {
   const [points, changePoints] = useState(0);
   let matchCard = [];
@@ -41,10 +59,10 @@ function MatchContainer() {
     }
   };
   return (
-    <div className="match-container">
+    <div>
       <h2>Match the corresponding words with eachother</h2>
-      <div className="words-container">
-        <div className="english-container flex-container">
+      <WordsContainer>
+        <EnglishContainer>
           <Card click={match} id="1">
             Hello
           </Card>
@@ -57,8 +75,8 @@ function MatchContainer() {
           <Card click={match} id="4">
             Where am I?
           </Card>
-        </div>
-        <div className="french-container flex-container">
+        </EnglishContainer>
+        <FrenchContainer>
           <Card click={match} id="2">
             Au revoir
           </Card>
@@ -71,8 +89,8 @@ function MatchContainer() {
           <Card click={match} id="4">
             Ou je suis?
           </Card>
-        </div>
-      </div>
+        </FrenchContainer>
+      </WordsContainer>
       <Points>{points}</Points>
     </div>
   );
