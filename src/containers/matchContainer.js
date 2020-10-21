@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Card from "../components/Card";
 import Points from "../components/Points";
 import styled from "styled-components";
+import ProgressHeader from "../components/ProgressHeader";
 
 const WordsContainer = styled.div`
   display: flex;
@@ -61,6 +62,7 @@ function MatchContainer() {
   };
   return (
     <div>
+      <ProgressHeader />
       <h2>Match the corresponding words with eachother</h2>
       <WordsContainer>
         <EnglishContainer>

@@ -27,13 +27,17 @@ const Input = styled.input`
   }
 `;
 
-const ConjugationSection = () => {
+const ConjugationSection = (props) => {
   const [correct, addToCorrect] = useState([
     { id: 1, isCorrect: false },
     { id: 2, isCorrect: false },
     { id: 3, isCorrect: false },
     { id: 4, isCorrect: false },
   ]);
+
+  function checkIfFinished(item) {
+    return item.isCorrect === true;
+  }
 
   let comparingItems = [];
 
@@ -63,6 +67,12 @@ const ConjugationSection = () => {
       comparingItems = [];
     }
   };
+
+  if (correct.every(checkIfFinished)) {
+    setTimeout(() => {
+      props.changeState();
+    }, 100);
+  }
 
   return (
     <div>

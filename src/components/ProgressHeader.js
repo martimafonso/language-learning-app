@@ -30,6 +30,7 @@ const Header = () => {
             width="auto"
             height="50px"
             src="https://image.flaticon.com/icons/png/512/496/496394.png"
+            alt="a logo"
           ></img>
         </DivFlex1>
       </HeaderContainer>
