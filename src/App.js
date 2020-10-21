@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./App.css";
-import styled from "styled-components";
 import MainContainer from "./containers/mainContainer";
 import ConjugationContainer from "./containers/conjugationContainer";
 import MatchContainer from "./containers/matchContainer";
