@@ -21,6 +21,7 @@ const FrenchContainer = styled.div`
   width: 50%;
   margin: 0 30px;
 `;
+
 function MatchContainer() {
   const [points, changePoints] = useState(0);
   let matchCard = [];
