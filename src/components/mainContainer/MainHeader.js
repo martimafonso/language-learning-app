@@ -36,20 +36,20 @@ const A = styled.a`
   }
 `;
 
-const MainHeader = () => {
+const MainHeader = (props) => {
   return (
     <MarginContainer>
       <Header>
-        <A href="#">
+        <A href="#" onClick={props.selectHome}>
           <i className="fas fa-home"></i>
         </A>
-        <A href="#">
+        <A href="#" onClick={props.selectContact}>
           <i className="fas fa-phone"></i>
         </A>
-        <A href="#">
+        <A href="#" onClick={props.selectFriends}>
           <i className="fas fa-users"></i>
         </A>
-        <A href="#">
+        <A href="#" onClick={props.selectLanguage}>
           <img
             height="40px"
             src="https://image.flaticon.com/icons/png/512/496/496394.png"
