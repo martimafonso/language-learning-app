@@ -9,7 +9,7 @@ const FlexContainer = styled.div`
 const MainNavigationSection = (props) => {
   return (
     <div>
-      <h2>Main Navigation Section</h2>
+      <h2>Your Lessons</h2>
       <FlexContainer>
         <Basics click={props.click} />
       </FlexContainer>

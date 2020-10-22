@@ -6,7 +6,8 @@ const Card = (props) => {
       word={props.children}
       id={props.id}
       onClick={props.click}
-      className="card"
+      className={props.className}
+      index={props.index}
     >
       {props.children}
     </p>

@@ -17,7 +17,10 @@ function App() {
       );
     }
     if (state === 2) {
-      return <MatchContainer />;
+      return <MatchContainer changeState={() => updateState(state + 1)} />;
+    }
+    if (state === 3) {
+      updateState(state - 3);
     }
   };
 
