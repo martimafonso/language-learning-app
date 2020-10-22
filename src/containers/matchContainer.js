@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Card from "../components/Card";
+import Card from "../components/matchContainer/Card";
 import Points from "../components/Points";
 import styled from "styled-components";
-import ProgressHeader from "../components/ProgressHeader";
+import ProgressHeader from "../components/headers/ProgressHeader";
 
 const WordsContainer = styled.div`
   display: flex;

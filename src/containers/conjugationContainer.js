@@ -1,6 +1,6 @@
 import React from "react";
-import ConjugationSection from "../components/ConjugationSection";
-import ProgressHeader from "../components/ProgressHeader";
+import ConjugationSection from "../components/conjugationContainer/ConjugationSection";
+import ProgressHeader from "../components/headers/ProgressHeader";
 
 const ConjugationContainer = (props) => {
   return (

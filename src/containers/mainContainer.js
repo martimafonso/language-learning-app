@@ -1,6 +1,6 @@
 import React from "react";
-import MainHeader from "../components/MainHeader";
-import MainNavigationSection from "../components/MainNavigationSection";
+import MainHeader from "../components/mainContainer/MainHeader";
+import MainNavigationSection from "../components/mainContainer/MainNavigationSection";
 
 const MatchContainer = (props) => {
   return (
