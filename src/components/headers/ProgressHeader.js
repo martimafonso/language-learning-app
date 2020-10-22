@@ -19,12 +19,28 @@ const MarginContainer = styled.div`
   padding: 5px;
 `;
 
-const Header = () => {
+const Header = (props) => {
+  const ProgressBarContainer = styled.div`
+    position: relative;
+    flex: 1;
+    border: 1px solid black;
+    height: 10px;
+    > div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: ${props.progress};
+      height: 10px;
+      background-color: black;
+    }
+  `;
   return (
     <MarginContainer>
       <HeaderContainer>
-        <LeaveBtn></LeaveBtn>
-        <DivFlex1>0%</DivFlex1>
+        <LeaveBtn returnToMain={props.returnToMain} />
+        <ProgressBarContainer>
+          <div></div>
+        </ProgressBarContainer>
         <DivFlex1>
           <img
             width="auto"

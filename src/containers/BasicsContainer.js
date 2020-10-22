@@ -7,6 +7,8 @@ import FinishedLesson from "../components/FinishedLesson";
 const BasicsContainer = (props) => {
   const [section, updateSection] = useState(0);
 
+  let lessonProgress = (section * 100) / 2;
+
   let currentSection = () => {
     if (section === 0) {
       return (
@@ -25,7 +27,10 @@ const BasicsContainer = (props) => {
 
   return (
     <>
-      <ProgressHeader />
+      <ProgressHeader
+        returnToMain={props.returnToMain}
+        progress={lessonProgress + "%"}
+      />
       {currentSection()}
     </>
   );

@@ -41,10 +41,10 @@ const LeaveBtnContainer = styled.div`
   }
 `;
 
-const LeaveBtn = () => {
+const LeaveBtn = (props) => {
   return (
     <LeaveBtnContainer>
-      <LeaveBtnDiv></LeaveBtnDiv>
+      <LeaveBtnDiv onClick={props.returnToMain}></LeaveBtnDiv>
     </LeaveBtnContainer>
   );
 };
