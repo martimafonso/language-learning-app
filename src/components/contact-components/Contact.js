@@ -1,5 +1,5 @@
 import React from "react";
-import MainHeader from "./mainContainer/MainHeader";
+import MainHeader from "../headers/MainHeader";
 
 const Contact = () => {
   return <h1> Contact Page </h1>;

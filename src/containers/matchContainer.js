@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Card from "../components/matchContainer/Card";
+import Card from "../components/match-components/Card";
 import Points from "../components/Points";
 import styled from "styled-components";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import LeaveBtn from "../LeaveBtn";
+import LeaveBtn from "../navigational-components/LeaveBtn";
 import styled from "styled-components";
 
 const HeaderContainer = styled.div`

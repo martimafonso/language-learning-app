@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./App.css";
 import BasicsContainer from "./containers/BasicsContainer";
-import MainHeader from "./components/mainContainer/MainHeader";
-import MainNavigationSection from "./components/mainContainer/homeSection/MainNavigationSection";
-import Contact from "./components/Contact";
-import Friends from "./components/Friends";
-import Languages from "./components/Languages";
+import MainHeader from "./components/headers/MainHeader";
+import MainNavigationSection from "./components/home-page-components/MainNavigationSection";
+import Contact from "./components/contact-components/Contact";
+import Friends from "./components/friends-components/Friends";
+import Languages from "./components/languages-components/Languages";
 
 function App() {
   const [page, currentPage] = useState("main");

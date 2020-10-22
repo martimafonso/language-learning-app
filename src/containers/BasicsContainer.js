@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ConjugationContainer from "./conjugationContainer";
 import MatchContainer from "./matchContainer";
 import ProgressHeader from "../components/headers/ProgressHeader";
-import FinishedLesson from "../components/FinishedLesson";
+import FinishedLesson from "../components/navigational-components/FinishedLesson";
 
 const BasicsContainer = (props) => {
   const [section, updateSection] = useState(0);

@@ -1,5 +1,5 @@
 import React from "react";
-import Basics from "../Basics";
+import Basics from "./Basics";
 import styled from "styled-components";
 
 const FlexContainer = styled.div`
