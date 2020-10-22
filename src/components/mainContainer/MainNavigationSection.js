@@ -11,7 +11,7 @@ const MainNavigationSection = (props) => {
     <div>
       <h2>Your Lessons</h2>
       <FlexContainer>
-        <Basics click={props.click} />
+        <Basics changePg={props.selectBasics} />
       </FlexContainer>
     </div>
   );

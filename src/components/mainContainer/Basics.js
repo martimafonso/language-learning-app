@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import MatchContainer from "../../containers/mainContainer";
 
 const ImgContainer = styled.div`
   cursor: pointer;
@@ -15,7 +16,7 @@ const ImgContainer = styled.div`
 
 const Basics = (props) => {
   return (
-    <ImgContainer onClick={props.click}>
+    <ImgContainer onClick={props.changePg}>
       <img
         height="100px"
         src="https://cdn1.iconfinder.com/data/icons/user-interface-basics/512/BI_095_box-512.png"

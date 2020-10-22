@@ -6,7 +6,7 @@ const MatchContainer = (props) => {
   return (
     <div>
       <MainHeader />
-      <MainNavigationSection click={props.click} />
+      <MainNavigationSection selectBasics={props.selectBasics} />
     </div>
   );
 };

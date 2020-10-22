@@ -71,7 +71,7 @@ const ConjugationSection = (props) => {
   if (correct.every(checkIfFinished)) {
     // added a setTimeout because React NEEDED to render this page before changing to the next
     setTimeout(() => {
-      props.changeState();
+      props.updateSection();
     }, 1000);
   }
 

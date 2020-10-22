@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Card from "../components/matchContainer/Card";
 import Points from "../components/Points";
 import styled from "styled-components";
-import ProgressHeader from "../components/headers/ProgressHeader";
 
 const WordsContainer = styled.div`
   display: flex;
@@ -40,31 +39,6 @@ function MatchContainer(props) {
       { id: 4, word: "Ou je suis", isCorrect: false, isCurrent: false },
     ],
   });
-
-  // const engArr = cards.englishWords.map((item) => {
-  //   return item.isCurrent;
-  // });
-
-  // const frenchArr = cards.frenchWords.map((item) => {
-  //   return item.isCurrent;
-  // });
-
-  // const isCurrentArray = [...engArr, ...frenchArr];
-
-  // if (current.length === 2) {
-  //   if (current[0] !== current[1]) {
-  //     addToCurrent([]);
-  //   } else if (current[0].id === current[1].id) {
-  //     let resetCurrent = { ...cards };
-  //     resetCurrent.englishWords.forEach((item) => {
-  //       item.isCurrent = false;
-  //     });
-  //     resetCurrent.frenchWords.forEach((item) => {
-  //       item.isCurrent = false;
-  //     });
-  //     updateCards(resetCurrent);
-  //   }
-  // }
 
   function resetCurrent() {
     cards.englishWords.map((item) => {
@@ -161,13 +135,12 @@ function MatchContainer(props) {
 
   if (cards.englishWords.every(checkIfAllIsCorrectIsTrue)) {
     setTimeout(() => {
-      props.changeState();
+      props.updateSection();
     }, 1000);
   }
 
   return (
     <div>
-      <ProgressHeader />
       <h2>Match the corresponding words with eachother</h2>
       <WordsContainer>
         <EnglishContainer>{englishCardsList}</EnglishContainer>
