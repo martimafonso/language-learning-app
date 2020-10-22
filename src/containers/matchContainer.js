@@ -23,8 +23,6 @@ const FrenchContainer = styled.div`
 `;
 
 function MatchContainer(props) {
-  const [points, changePoints] = useState(0);
-
   const [cards, updateCards] = useState({
     englishWords: [
       { id: 1, word: "Hello", isCorrect: false, isCurrent: false },
@@ -146,7 +144,6 @@ function MatchContainer(props) {
         <EnglishContainer>{englishCardsList}</EnglishContainer>
         <FrenchContainer>{frenchCardsList}</FrenchContainer>
       </WordsContainer>
-      <Points>{points}</Points>
     </div>
   );
 }

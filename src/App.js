@@ -6,6 +6,8 @@ import MainNavigationSection from "./components/home-page-components/MainNavigat
 import Contact from "./components/contact-components/Contact";
 import Friends from "./components/friends-components/Friends";
 import Languages from "./components/languages-components/Languages";
+import FinishedLesson from "./components/navigational-components/FinishedLesson";
+import ProgressHeader from "./components/headers/ProgressHeader";
 
 function App() {
   const [page, currentPage] = useState("main");
