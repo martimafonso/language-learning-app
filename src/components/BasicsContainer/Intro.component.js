@@ -47,6 +47,11 @@ const MarginContainer = styled.div`
   margin: auto;
 `;
 
+/* If I get the backend running, I will make something
+   to randomize what either gets placed into the content hook
+   OR will create the function inside of here.
+*/
+
 export const Intro = () => {
   const [content, updateContent] = useState({
     words: [
@@ -116,6 +121,8 @@ export const Intro = () => {
     updateContent({ words: [...words], imgs: [...imgs] });
   };
 
+  // A large function for handling updating state and
+  // comparing objects
   const clickHandler = (obj) => {
     // Return word/img if they have isCurrent === true
     let isCurrent = function () {
@@ -160,6 +167,14 @@ export const Intro = () => {
     }
     updateContent({ words: [...words], imgs: [...imgs] });
   };
+
+  function compare(item) {
+    return item.isCorrect === true;
+  }
+
+  if (content.words.every(compare)) {
+    // add code to get to the next page
+  }
 
   return (
     <MarginContainer>
