@@ -52,7 +52,7 @@ const MarginContainer = styled.div`
    OR will create the function inside of here.
 */
 
-export const Intro = () => {
+export const Intro = ({ updateSection }) => {
   const [content, updateContent] = useState({
     words: [
       { word: "Hund", id: 1, isCorrect: false, isCurrent: false },
@@ -173,7 +173,9 @@ export const Intro = () => {
   }
 
   if (content.words.every(compare)) {
-    // add code to get to the next page
+    setTimeout(() => {
+      updateSection();
+    }, 500);
   }
 
   return (
