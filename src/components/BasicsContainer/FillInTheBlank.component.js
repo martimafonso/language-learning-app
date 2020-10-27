@@ -15,16 +15,39 @@ const Input = styled.input`
   text-align: center;
 `;
 
+const Section = styled.section`
+  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.25);
+  width: fit-content;
+  margin: 10px auto;
+  border-radius: 10px;
+  padding: 5px 20px;
+  &.correct {
+    opacity: 0.25;
+  }
+`;
+
 export const FillInTheBlank = () => {
   const [input, setInput] = useState({
     word1: "",
     word2: "",
+    word3: "",
   });
 
   const [isCorrect, setIsCorrect] = useState({
     word1: false,
     word2: false,
+    word3: false,
   });
+
+  if (
+    isCorrect.word1 === true &&
+    isCorrect.word2 === true &&
+    isCorrect.word3 === true
+  ) {
+    setTimeout(() => {
+      console.log("change page");
+    }, 500);
+  }
 
   const inputHandler = (e) => {
     if (e.target.id === "1") {
@@ -32,6 +55,9 @@ export const FillInTheBlank = () => {
     }
     if (e.target.id === "2") {
       setInput({ word2: e.target.value });
+    }
+    if (e.target.id === "3") {
+      setInput({ word3: e.target.value });
     }
   };
   if (isCorrect.word1 === false) {
@@ -47,37 +73,71 @@ export const FillInTheBlank = () => {
       setInput((input.word2 = "Katze"));
     }
   }
-
-  console.log(isCorrect);
+  if (isCorrect.word3 === false) {
+    if (input.word3 === "Vogel" || input.word3 === "vogel") {
+      setIsCorrect((isCorrect.word3 = true));
+      setInput((input.word3 = "Vogel"));
+    }
+  }
 
   return (
     <>
-      <div>
-        <P className={isCorrect.word1 ? "correct" : ""}>The dog likes food.</P>
-        <P className={isCorrect.word2 ? "correct" : ""}>
-          The cat is eating the man.
-        </P>
-      </div>
-      <div>
-        <P className={isCorrect.word1 ? "correct" : ""}>
+      <Section className={isCorrect.word1 ? "correct" : ""}>
+        <P>The dog likes food.</P>
+        <P>
           Der{" "}
           {isCorrect.word1 ? (
-            <Input readOnly id="1" type="text" onChange={inputHandler} />
+            <Input
+              tabIndex="1"
+              readOnly
+              id="1"
+              type="text"
+              onChange={inputHandler}
+            />
           ) : (
-            <Input id="1" type="text" onChange={inputHandler} />
+            <Input tabIndex="1" id="1" type="text" onChange={inputHandler} />
           )}{" "}
           Essen gern.
         </P>
-        <P className={isCorrect.word2 ? "correct" : ""}>
+      </Section>
+      <Section className={isCorrect.word2 ? "correct" : ""}>
+        <P>The cat is eating the man.</P>
+
+        <P>
           Die{" "}
           {isCorrect.word2 ? (
-            <Input readOnly id="2" type="text" onChange={inputHandler} />
+            <Input
+              tabIndex="2"
+              readOnly
+              id="2"
+              type="text"
+              onChange={inputHandler}
+            />
           ) : (
-            <Input id="2" type="text" onChange={inputHandler} />
+            <Input tabIndex="2" id="2" type="text" onChange={inputHandler} />
           )}{" "}
           frisst der Mann
         </P>
-      </div>
+      </Section>
+      <Section className={isCorrect.word3 ? "correct" : ""}>
+        <P>The bird can fly.</P>
+
+        <P>
+          Der{" "}
+          {isCorrect.word3 ? (
+            <Input
+              tabIndex="3"
+              readOnly
+              id="3"
+              type="text"
+              onChange={inputHandler}
+            />
+          ) : (
+            <Input tabIndex="3" id="3" type="text" onChange={inputHandler} />
+          )}{" "}
+          kann fliegen.
+        </P>
+      </Section>
     </>
   );
 };
