@@ -180,6 +180,7 @@ export const Intro = ({ updateSection }) => {
 
   return (
     <MarginContainer>
+      <h2>Match each word to their image</h2>
       <WordsContainer>
         {content.words.map((word) => {
           return (
