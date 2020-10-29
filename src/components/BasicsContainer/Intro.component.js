@@ -43,7 +43,6 @@ const Img = styled.img`
 
 const MarginContainer = styled.div`
   width: 1000px;
-
   margin: auto;
 `;
 

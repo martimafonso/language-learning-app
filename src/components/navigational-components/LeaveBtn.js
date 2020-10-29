@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const LeaveBtnDiv = styled.div`
    {
@@ -41,10 +42,12 @@ const LeaveBtnContainer = styled.div`
   }
 `;
 
-const LeaveBtn = (props) => {
+const LeaveBtn = () => {
   return (
     <LeaveBtnContainer>
-      <LeaveBtnDiv onClick={props.returnToMain}></LeaveBtnDiv>
+      <Link to="/">
+        <LeaveBtnDiv></LeaveBtnDiv>
+      </Link>
     </LeaveBtnContainer>
   );
 };

@@ -1,7 +1,13 @@
 import React from "react";
+import MainHeader from "../headers/MainHeader";
 
 const Languages = () => {
-  return <h1> Your Languages </h1>;
+  return (
+    <div>
+      <MainHeader />
+      <h1> Your Languages </h1>
+    </div>
+  );
 };
 
 export default Languages;

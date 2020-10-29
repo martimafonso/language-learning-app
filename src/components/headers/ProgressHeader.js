@@ -37,7 +37,7 @@ const Header = (props) => {
   return (
     <MarginContainer>
       <HeaderContainer>
-        <LeaveBtn returnToMain={props.returnToMain} />
+        <LeaveBtn />
         <ProgressBarContainer>
           <div></div>
         </ProgressBarContainer>

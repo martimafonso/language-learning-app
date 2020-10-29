@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Header = styled.div`
   max-width: 1200px;
@@ -22,7 +23,7 @@ const MarginContainer = styled.div`
   background-color: #ddd;
 `;
 
-const A = styled.a`
+const StyledLink = styled.div`
   color: black;
   text-decoration: none;
   i {
@@ -36,25 +37,34 @@ const A = styled.a`
   }
 `;
 
-const MainHeader = (props) => {
+const MainHeader = () => {
   return (
     <MarginContainer>
       <Header>
-        <A href="#" onClick={props.selectHome}>
-          <i className="fas fa-home"></i>
-        </A>
-        <A href="#" onClick={props.selectContact}>
-          <i className="fas fa-phone"></i>
-        </A>
-        <A href="#" onClick={props.selectFriends}>
-          <i className="fas fa-users"></i>
-        </A>
-        <A href="#" onClick={props.selectLanguage}>
-          <img
-            height="40px"
-            src="https://image.flaticon.com/icons/png/512/496/496394.png"
-          />
-        </A>
+        <Link to="/">
+          <StyledLink>
+            <i className="fas fa-home"></i>
+          </StyledLink>
+        </Link>
+        <Link to="/contact">
+          <StyledLink>
+            <i className="fas fa-phone"></i>
+          </StyledLink>
+        </Link>
+        <Link to="/friends">
+          <StyledLink>
+            <i className="fas fa-users"></i>
+          </StyledLink>
+        </Link>
+        <Link to="/languages">
+          <StyledLink>
+            <img
+              height="40px"
+              src="https://image.flaticon.com/icons/png/512/496/496394.png"
+              alt="a french icon"
+            />
+          </StyledLink>
+        </Link>
       </Header>
     </MarginContainer>
   );
