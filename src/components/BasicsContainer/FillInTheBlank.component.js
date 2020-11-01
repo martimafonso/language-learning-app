@@ -27,11 +27,7 @@ const Section = styled.section`
 `;
 
 export const FillInTheBlank = (props) => {
-  const [input, setInput] = useState({
-    word1: "",
-    word2: "",
-    word3: "",
-  });
+  const [input, setInput] = useState("");
 
   const [isCorrect, setIsCorrect] = useState({
     word1: false,
@@ -39,50 +35,86 @@ export const FillInTheBlank = (props) => {
     word3: false,
   });
 
-  if (
-    isCorrect.word1 === true &&
-    isCorrect.word2 === true &&
-    isCorrect.word3 === true
-  ) {
+  const [words, updateWords] = useState([
+    {
+      word: "chien",
+      id: "word1",
+      englishSentence: "The dog likes pizza",
+      frenchSentencePt1: "La ",
+      frenchSentencePt2: " aime la Pizza",
+      isCorrect: false,
+      isCurrent: false,
+    },
+    {
+      word: "chat",
+      id: "word2",
+      englishSentence: "The cat is eating the man",
+      frenchSentencePt1: "La ",
+      frenchSentencePt2: " mange le homme",
+      isCorrect: false,
+      isCurrent: false,
+    },
+    {
+      word: "fille",
+      id: "word3",
+      englishSentence: "The girl is reading a book",
+      frenchSentencePt1: "La ",
+      frenchSentencePt2: " lire un livre",
+      isCorrect: false,
+      isCurrent: false,
+    },
+  ]);
+
+  const checkAll = function (x) {
+    return x.isCorrect;
+  };
+
+  if (words.every(checkAll)) {
     setTimeout(() => {
       props.updateSection();
     }, 500);
   }
 
-  const inputHandler = (e) => {
-    if (e.target.id === "1") {
-      setInput({ word1: e.target.value });
+  words.forEach((word) => {
+    if (word.isCorrect === false) {
+      if (input === word.word) {
+        word.isCorrect = true;
+      }
     }
-    if (e.target.id === "2") {
-      setInput({ word2: e.target.value });
-    }
-    if (e.target.id === "3") {
-      setInput({ word3: e.target.value });
-    }
-  };
-  if (isCorrect.word1 === false) {
-    if (input.word1 === "chien" || input.word1 === "Chien") {
-      setIsCorrect((isCorrect.word1 = true));
-      setInput((input.word1 = "chien"));
-    }
-  }
+  });
 
-  if (isCorrect.word2 === false) {
-    if (input.word2 === "chat" || input.word2 === "Chat") {
-      setIsCorrect((isCorrect.word2 = true));
-      setInput((input.word2 = "chat"));
-    }
-  }
-  if (isCorrect.word3 === false) {
-    if (input.word3 === "fille" || input.word3 === "Fille") {
-      setIsCorrect((isCorrect.word3 = true));
-      setInput((input.word3 = "fille"));
-    }
-  }
+  console.log(input);
 
   return (
     <>
-      <Section className={isCorrect.word1 ? "correct" : ""}>
+      {words.map((word, index) => {
+        return (
+          <Section className={word.isCorrect ? "correct" : ""}>
+            <P>{word.englishSentence}</P>
+            <P>
+              {word.frenchSentencePt1}
+              {word.isCorrect ? (
+                <Input
+                  tabIndex={index + 1}
+                  readOnly
+                  id={word.id}
+                  type="text"
+                  onChange={(e) => setInput(e.target.value)}
+                />
+              ) : (
+                <Input
+                  tabIndex={index + 1}
+                  id={word.id}
+                  type="text"
+                  onChange={(e) => setInput(e.target.value)}
+                />
+              )}
+              {word.frenchSentencePt2}
+            </P>
+          </Section>
+        );
+      })}
+      {/* <Section className={isCorrect.word1 ? "correct" : ""}>
         <P>The dog likes Pizza.</P>
         <P>
           La{" "}
@@ -137,7 +169,7 @@ export const FillInTheBlank = (props) => {
           )}{" "}
           lire un livre.
         </P>
-      </Section>
+      </Section> */}
     </>
   );
 };

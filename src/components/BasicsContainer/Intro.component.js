@@ -184,6 +184,7 @@ export const Intro = ({ updateSection }) => {
         {content.words.map((word) => {
           return (
             <Word
+              style={word.isCurrent ? { color: "red" } : { color: "black" }}
               key={"word" + word.id}
               className={word.isCorrect ? "correct" : ""}
               onClick={() => clickHandler(word)}
@@ -197,6 +198,9 @@ export const Intro = ({ updateSection }) => {
         {content.imgs.map((img) => {
           return (
             <Img
+              style={
+                img.isCurrent ? { borderColor: "red" } : { color: "black" }
+              }
               key={"img" + img.id}
               className={img.isCorrect ? "correct" : ""}
               onClick={() => clickHandler(img)}
