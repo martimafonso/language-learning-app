@@ -87,7 +87,7 @@ export const FillInTheBlank = (props) => {
     <>
       {words.map((word, index) => {
         return (
-          <Section className={word.isCorrect ? "correct" : ""}>
+          <Section key={word.id} className={word.isCorrect ? "correct" : ""}>
             <P>{word.englishSentence}</P>
             <P>
               {word.frenchSentencePt1}
