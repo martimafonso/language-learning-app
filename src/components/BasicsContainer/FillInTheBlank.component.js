@@ -27,13 +27,7 @@ const Section = styled.section`
 `;
 
 export const FillInTheBlank = (props) => {
-  const [input, setInput] = useState("");
-
-  const [isCorrect, setIsCorrect] = useState({
-    word1: false,
-    word2: false,
-    word3: false,
-  });
+  const [input, setInput] = useState(["", "", ""]);
 
   const [words, updateWords] = useState([
     {
@@ -65,6 +59,12 @@ export const FillInTheBlank = (props) => {
     },
   ]);
 
+  const onChangeHandler = (e, index) => {
+    let newInput = [...input];
+    newInput[index] = e.target.value;
+    setInput(newInput);
+  };
+
   const checkAll = function (x) {
     return x.isCorrect;
   };
@@ -75,15 +75,13 @@ export const FillInTheBlank = (props) => {
     }, 500);
   }
 
-  words.forEach((word) => {
+  words.forEach((word, index) => {
     if (word.isCorrect === false) {
-      if (input === word.word) {
+      if (input[index] === word.word) {
         word.isCorrect = true;
       }
     }
   });
-
-  console.log(input);
 
   return (
     <>
@@ -99,14 +97,14 @@ export const FillInTheBlank = (props) => {
                   readOnly
                   id={word.id}
                   type="text"
-                  onChange={(e) => setInput(e.target.value)}
+                  onChange={(e) => onChangeHandler(e, index)}
                 />
               ) : (
                 <Input
                   tabIndex={index + 1}
                   id={word.id}
                   type="text"
-                  onChange={(e) => setInput(e.target.value)}
+                  onChange={(e) => onChangeHandler(e, index)}
                 />
               )}
               {word.frenchSentencePt2}
@@ -114,62 +112,6 @@ export const FillInTheBlank = (props) => {
           </Section>
         );
       })}
-      {/* <Section className={isCorrect.word1 ? "correct" : ""}>
-        <P>The dog likes Pizza.</P>
-        <P>
-          La{" "}
-          {isCorrect.word1 ? (
-            <Input
-              tabIndex="1"
-              readOnly
-              id="1"
-              type="text"
-              onChange={inputHandler}
-            />
-          ) : (
-            <Input tabIndex="1" id="1" type="text" onChange={inputHandler} />
-          )}{" "}
-          aime la Pizza.
-        </P>
-      </Section>
-      <Section className={isCorrect.word2 ? "correct" : ""}>
-        <P>The cat is eating the man.</P>
-
-        <P>
-          La{" "}
-          {isCorrect.word2 ? (
-            <Input
-              tabIndex="2"
-              readOnly
-              id="2"
-              type="text"
-              onChange={inputHandler}
-            />
-          ) : (
-            <Input tabIndex="2" id="2" type="text" onChange={inputHandler} />
-          )}{" "}
-          mange le Homme.
-        </P>
-      </Section>
-      <Section className={isCorrect.word3 ? "correct" : ""}>
-        <P>The girl is reading a book.</P>
-
-        <P>
-          La{" "}
-          {isCorrect.word3 ? (
-            <Input
-              tabIndex="3"
-              readOnly
-              id="3"
-              type="text"
-              onChange={inputHandler}
-            />
-          ) : (
-            <Input tabIndex="3" id="3" type="text" onChange={inputHandler} />
-          )}{" "}
-          lire un livre.
-        </P>
-      </Section> */}
     </>
   );
 };
