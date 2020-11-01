@@ -4,11 +4,12 @@ import MatchContainer from "./matchContainer";
 import ProgressHeader from "../components/headers/ProgressHeader";
 import FinishedLesson from "../components/navigational-components/FinishedLesson";
 import { Intro } from "../components/BasicsContainer/Intro.component";
+import { FillInTheBlank } from "../components/BasicsContainer/FillInTheBlank.component";
 
 const BasicsContainer = (props) => {
   const [section, updateSection] = useState(0);
 
-  let lessonProgress = (section * 100) / 3;
+  let lessonProgress = (section * 100) / 4;
 
   let currentSection = () => {
     if (section === 0) {
@@ -24,6 +25,10 @@ const BasicsContainer = (props) => {
         />
       );
     } else if (section === 3) {
+      return (
+        <FillInTheBlank updateSection={() => updateSection(section + 1)} />
+      );
+    } else if (section === 4) {
       return <FinishedLesson returnToMain={props.returnToMain} />;
     }
   };

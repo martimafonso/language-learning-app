@@ -26,7 +26,7 @@ const Section = styled.section`
   }
 `;
 
-export const FillInTheBlank = () => {
+export const FillInTheBlank = (props) => {
   const [input, setInput] = useState({
     word1: "",
     word2: "",
@@ -45,7 +45,7 @@ export const FillInTheBlank = () => {
     isCorrect.word3 === true
   ) {
     setTimeout(() => {
-      console.log("change page");
+      props.updateSection();
     }, 500);
   }
 
@@ -61,31 +61,31 @@ export const FillInTheBlank = () => {
     }
   };
   if (isCorrect.word1 === false) {
-    if (input.word1 === "Hund" || input.word1 === "hund") {
+    if (input.word1 === "chien" || input.word1 === "Chien") {
       setIsCorrect((isCorrect.word1 = true));
-      setInput((input.word1 = "Hund"));
+      setInput((input.word1 = "chien"));
     }
   }
 
   if (isCorrect.word2 === false) {
-    if (input.word2 === "Katze" || input.word2 === "katze") {
+    if (input.word2 === "chat" || input.word2 === "Chat") {
       setIsCorrect((isCorrect.word2 = true));
-      setInput((input.word2 = "Katze"));
+      setInput((input.word2 = "chat"));
     }
   }
   if (isCorrect.word3 === false) {
-    if (input.word3 === "Vogel" || input.word3 === "vogel") {
+    if (input.word3 === "fille" || input.word3 === "Fille") {
       setIsCorrect((isCorrect.word3 = true));
-      setInput((input.word3 = "Vogel"));
+      setInput((input.word3 = "fille"));
     }
   }
 
   return (
     <>
       <Section className={isCorrect.word1 ? "correct" : ""}>
-        <P>The dog likes food.</P>
+        <P>The dog likes Pizza.</P>
         <P>
-          Der{" "}
+          La{" "}
           {isCorrect.word1 ? (
             <Input
               tabIndex="1"
@@ -97,14 +97,14 @@ export const FillInTheBlank = () => {
           ) : (
             <Input tabIndex="1" id="1" type="text" onChange={inputHandler} />
           )}{" "}
-          Essen gern.
+          aime la Pizza.
         </P>
       </Section>
       <Section className={isCorrect.word2 ? "correct" : ""}>
         <P>The cat is eating the man.</P>
 
         <P>
-          Die{" "}
+          La{" "}
           {isCorrect.word2 ? (
             <Input
               tabIndex="2"
@@ -116,14 +116,14 @@ export const FillInTheBlank = () => {
           ) : (
             <Input tabIndex="2" id="2" type="text" onChange={inputHandler} />
           )}{" "}
-          frisst der Mann
+          mange le Homme.
         </P>
       </Section>
       <Section className={isCorrect.word3 ? "correct" : ""}>
-        <P>The bird can fly.</P>
+        <P>The girl is reading a book.</P>
 
         <P>
-          Der{" "}
+          La{" "}
           {isCorrect.word3 ? (
             <Input
               tabIndex="3"
@@ -135,7 +135,7 @@ export const FillInTheBlank = () => {
           ) : (
             <Input tabIndex="3" id="3" type="text" onChange={inputHandler} />
           )}{" "}
-          kann fliegen.
+          lire un livre.
         </P>
       </Section>
     </>
