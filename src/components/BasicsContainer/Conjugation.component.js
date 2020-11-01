@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import Wrong from "./Wrong.component";
 
 const LiInline = styled.li`
   display: inline;
@@ -35,6 +36,8 @@ const Conjugation = (props) => {
     { id: 4, inputWord: "sont", setup: "Ils", isCorrect: false },
   ]);
 
+  const [isWrong, setIsWrong] = useState(false);
+
   function checkIfFinished(item) {
     return item.isCorrect === true;
   }
@@ -57,13 +60,18 @@ const Conjugation = (props) => {
         return item;
       });
       updateWords(newCorrect);
+    } else if (comparingItems.length === 2) {
+      setIsWrong(true);
+      setTimeout(() => {
+        setIsWrong(false);
+      }, 1000);
     }
-    // if correct did not get updated, reset compareArray
-    // also reset colors
+    // reset compareArray also reset colors
     if (comparingItems.length === 2) {
       comparingItems.forEach((item) => {
         item.style.color = "black";
       });
+
       comparingItems = [];
     }
   };
@@ -105,6 +113,7 @@ const Conjugation = (props) => {
           );
         })}
       </div>
+      <Wrong isWrong={isWrong} />
     </div>
   );
 };
