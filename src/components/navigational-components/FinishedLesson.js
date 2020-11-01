@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Button = styled.button`
   font-size: 1.3rem;
@@ -18,7 +19,9 @@ const FishishedLesson = (props) => {
   return (
     <>
       <h2>Yay! You completed this Excersize!</h2>
-      <Button onClick={props.returnToMain}>Go back to your Homepage</Button>
+      <Link to="/">
+        <Button onClick={props.returnToMain}>Go back to your Homepage</Button>
+      </Link>
     </>
   );
 };
