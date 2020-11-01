@@ -54,12 +54,12 @@ const MarginContainer = styled.div`
 export const Intro = ({ updateSection }) => {
   const [content, updateContent] = useState({
     words: [
-      { word: "Hund", id: 1, isCorrect: false, isCurrent: false },
-      { word: "Katze", id: 2, isCorrect: false, isCurrent: false },
-      { word: "Person", id: 3, isCorrect: false, isCurrent: false },
-      { word: "Vogel", id: 4, isCorrect: false, isCurrent: false },
-      { word: "Auto", id: 5, isCorrect: false, isCurrent: false },
-      { word: "Zeit", id: 6, isCorrect: false, isCurrent: false },
+      { word: "Chien", id: 1, isCorrect: false, isCurrent: false },
+      { word: "Chat", id: 2, isCorrect: false, isCurrent: false },
+      { word: "Personne", id: 3, isCorrect: false, isCurrent: false },
+      { word: "Oiseau", id: 4, isCorrect: false, isCurrent: false },
+      { word: "Voiture", id: 5, isCorrect: false, isCurrent: false },
+      { word: "Heure", id: 6, isCorrect: false, isCurrent: false },
     ],
     imgs: [
       {
