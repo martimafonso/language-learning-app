@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Card from "../components/match-components/Card";
+import Card from "./Card.component";
 import styled from "styled-components";
 
 const WordsContainer = styled.div`

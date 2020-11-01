@@ -6,7 +6,7 @@ import FinishedLesson from "../components/navigational-components/FinishedLesson
 import { Intro } from "../components/BasicsContainer/Intro.component";
 import { FillInTheBlank } from "../components/BasicsContainer/FillInTheBlank.component";
 
-const BasicsContainer = (props) => {
+const Basics2Container = (props) => {
   const [section, updateSection] = useState(0);
 
   let lessonProgress = (section * 100) / 4;
@@ -40,4 +40,4 @@ const BasicsContainer = (props) => {
   );
 };
 
-export default BasicsContainer;
+export default Basics2Container;

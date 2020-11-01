@@ -58,8 +58,6 @@ export const Intro = ({ updateSection }) => {
       { word: "Chat", id: 2, isCorrect: false, isCurrent: false },
       { word: "Personne", id: 3, isCorrect: false, isCurrent: false },
       { word: "Oiseau", id: 4, isCorrect: false, isCurrent: false },
-      { word: "Voiture", id: 5, isCorrect: false, isCurrent: false },
-      { word: "Heure", id: 6, isCorrect: false, isCurrent: false },
     ],
     imgs: [
       {
@@ -87,20 +85,6 @@ export const Intro = ({ updateSection }) => {
         url:
           "https://images.pexels.com/photos/2662434/pexels-photo-2662434.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
         id: 4,
-        isCorrect: false,
-        isCurrent: false,
-      },
-      {
-        url:
-          "https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
-        id: 5,
-        isCorrect: false,
-        isCurrent: false,
-      },
-      {
-        url:
-          "https://images.pexels.com/photos/1198264/pexels-photo-1198264.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        id: 6,
         isCorrect: false,
         isCurrent: false,
       },
