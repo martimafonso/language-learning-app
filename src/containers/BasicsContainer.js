@@ -12,7 +12,7 @@ const BasicsContainer = (props) => {
   let lessonProgress = (section * 100) / 4;
 
   let currentSection = () => {
-    if (section === 3) {
+    if (section === 0) {
       return <Intro updateSection={() => updateSection(section + 1)} />;
     } else if (section === 1) {
       return (
@@ -24,7 +24,7 @@ const BasicsContainer = (props) => {
           updateSection={() => updateSection(section + 1)}
         />
       );
-    } else if (section === 0) {
+    } else if (section === 3) {
       return (
         <FillInTheBlank updateSection={() => updateSection(section + 1)} />
       );
