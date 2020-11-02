@@ -22,7 +22,7 @@ const FrenchContainer = styled.div`
   margin: 0 30px;
 `;
 
-function MatchContainer(props) {
+function Match(props) {
   const [cards, updateCards] = useState({
     englishWords: [
       { id: 1, word: "Hello", isCorrect: false, isCurrent: false },
@@ -157,4 +157,4 @@ function MatchContainer(props) {
   );
 }
 
-export default MatchContainer;
+export default Match;

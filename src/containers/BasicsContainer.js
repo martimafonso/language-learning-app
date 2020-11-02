@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Conjugation from "../components/BasicsContainer/Conjugation.component";
-import MatchContainer from "../components/BasicsContainer/Match.component";
+import Match from "../components/BasicsContainer/Match.component";
 import ProgressHeader from "../components/headers/ProgressHeader";
 import FinishedLesson from "../components/navigational-components/FinishedLesson";
 import { Intro } from "../components/BasicsContainer/Intro.component";
@@ -15,9 +15,7 @@ const BasicsContainer = (props) => {
     if (section === 0) {
       return <Intro updateSection={() => updateSection(section + 1)} />;
     } else if (section === 1) {
-      return (
-        <MatchContainer updateSection={() => updateSection(section + 1)} />
-      );
+      return <Match updateSection={() => updateSection(section + 1)} />;
     } else if (section === 2) {
       return <Conjugation updateSection={() => updateSection(section + 1)} />;
     } else if (section === 3) {
