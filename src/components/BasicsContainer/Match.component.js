@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Card from "./Card.component";
 import styled from "styled-components";
+import Wrong from "./Wrong.component";
 
 const WordsContainer = styled.div`
   display: flex;
@@ -37,6 +38,8 @@ function MatchContainer(props) {
     ],
   });
 
+  const [isWrong, setIsWrong] = useState(false);
+
   function resetCurrent() {
     cards.englishWords.map((item) => {
       item.isCurrent = false;
@@ -68,6 +71,12 @@ function MatchContainer(props) {
       currentWords[1].isCorrect = true;
       resetCurrent();
     } else {
+      setTimeout(() => {
+        setIsWrong(true);
+      }, 50);
+      setTimeout(() => {
+        setIsWrong(false);
+      }, 1050);
       resetCurrent();
     }
   }
@@ -143,6 +152,7 @@ function MatchContainer(props) {
         <EnglishContainer>{englishCardsList}</EnglishContainer>
         <FrenchContainer>{frenchCardsList}</FrenchContainer>
       </WordsContainer>
+      <Wrong isWrong={isWrong} />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import "./Intro.component.css";
+import Wrong from "./Wrong.component";
 
 const WordsContainer = styled.div`
   display: flex;
@@ -29,13 +30,14 @@ const ImgsContainer = styled.div`
 `;
 
 const Img = styled.img`
-  max-width: 150px;
+  width: auto;
   height: 150px;
   margin: 5px;
   border-radius: 10px;
   border: 3px white solid;
   box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.25);
   cursor: pointer;
+  overflow: hidden;
   &:hover {
     border-color: black;
   }
@@ -91,6 +93,8 @@ export const Intro = ({ updateSection }) => {
     ],
   });
 
+  const [isWrong, setIsWrong] = useState(false);
+
   const resetCurrent = () => {
     let words = content.words.map((word) => {
       word.isCurrent = false;
@@ -144,6 +148,11 @@ export const Intro = ({ updateSection }) => {
       if (compareArr[0].id === compareArr[1].id) {
         compareArr[0].isCorrect = true;
         compareArr[1].isCorrect = true;
+      } else {
+        setIsWrong(true);
+        setTimeout(() => {
+          setIsWrong(false);
+        }, 1000);
       }
       resetCurrent();
       console.log("compare arr is empty");
@@ -194,6 +203,7 @@ export const Intro = ({ updateSection }) => {
           );
         })}
       </ImgsContainer>
+      <Wrong isWrong={isWrong} />
     </MarginContainer>
   );
 };
