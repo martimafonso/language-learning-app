@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import Wrong from "./Wrong.component";
 
-const P = styled.p`
-  &.correct {
-    opacity: 0.25;
-  }
-`;
+const P = styled.p``;
 
 const Input = styled.input`
   border: none;
@@ -21,97 +18,80 @@ const Section = styled.section`
   margin: 10px auto;
   border-radius: 10px;
   padding: 5px 20px;
-  &.correct {
-    opacity: 0.25;
+  transition: all 0.3s ease;
+`;
+
+const StyledButton = styled.button`
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  background-color: #bbb;
+  transition: all 0.2s ease;
+  &:hover {
+    background-color: gray;
+  }
+  &:active {
+    background-color: lightGray;
   }
 `;
 
 export const FillInTheBlank = (props) => {
-  const [input, setInput] = useState(["", "", ""]);
+  const [input, setInput] = useState("");
 
-  const [words, updateWords] = useState([
-    {
-      word: "chien",
-      id: "word1",
-      englishSentence: "The dog likes pizza",
-      frenchSentencePt1: "La ",
-      frenchSentencePt2: " aime la Pizza",
-      isCorrect: false,
-      isCurrent: false,
-    },
-    {
-      word: "chat",
-      id: "word2",
-      englishSentence: "The cat is eating the man",
-      frenchSentencePt1: "La ",
-      frenchSentencePt2: " mange le homme",
-      isCorrect: false,
-      isCurrent: false,
-    },
-    {
-      word: "fille",
-      id: "word3",
-      englishSentence: "The girl is reading a book",
-      frenchSentencePt1: "La ",
-      frenchSentencePt2: " lire un livre",
-      isCorrect: false,
-      isCurrent: false,
-    },
-  ]);
+  const [isWrong, setIsWrong] = useState(false);
 
-  const onChangeHandler = (e, index) => {
-    let newInput = [...input];
-    newInput[index] = e.target.value;
-    setInput(newInput);
+  const [word, updateWord] = useState({
+    word: "chien",
+    englishSentence: "The dog likes pizza",
+    frenchSentencePt1: "La ",
+    frenchSentencePt2: " aime la Pizza",
+    isCorrect: false,
+  });
+
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    let newWord = { ...word };
+    if (input === word.word) {
+      newWord.isCorrect = true;
+      updateWord(newWord);
+    } else {
+      setIsWrong(true);
+      setTimeout(() => {
+        setIsWrong(false);
+      }, 1000);
+    }
   };
 
-  const checkAll = function (x) {
-    return x.isCorrect;
+  const onChangeHandler = (e) => {
+    setInput(e.target.value);
   };
 
-  if (words.every(checkAll)) {
+  if (word.isCorrect) {
     setTimeout(() => {
       props.updateSection();
     }, 500);
   }
 
-  words.forEach((word, index) => {
-    if (word.isCorrect === false) {
-      if (input[index] === word.word) {
-        word.isCorrect = true;
-      }
-    }
-  });
+  const style = {
+    opacity: word.isCorrect ? ".5" : "1",
+  };
 
   return (
     <>
-      {words.map((word, index) => {
-        return (
-          <Section key={word.id} className={word.isCorrect ? "correct" : ""}>
-            <P>{word.englishSentence}</P>
-            <P>
-              {word.frenchSentencePt1}
-              {word.isCorrect ? (
-                <Input
-                  tabIndex={index + 1}
-                  readOnly
-                  id={word.id}
-                  type="text"
-                  onChange={(e) => onChangeHandler(e, index)}
-                />
-              ) : (
-                <Input
-                  tabIndex={index + 1}
-                  id={word.id}
-                  type="text"
-                  onChange={(e) => onChangeHandler(e, index)}
-                />
-              )}
-              {word.frenchSentencePt2}
-            </P>
-          </Section>
-        );
-      })}
+      <Section style={style}>
+        <form onSubmit={onSubmitHandler}>
+          <P>{word.englishSentence}</P>
+          <P>
+            {word.frenchSentencePt1}
+            <Input tabIndex={1} onChange={onChangeHandler} type="text" />
+            {word.frenchSentencePt2}
+          </P>
+          <StyledButton type="submit">Check</StyledButton>
+        </form>
+      </Section>
+      <Wrong isWrong={isWrong} />
     </>
   );
 };
