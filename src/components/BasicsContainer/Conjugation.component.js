@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import Wrong from "./Wrong.component";
 
@@ -29,15 +29,6 @@ const Input = styled.input`
 `;
 
 const Conjugation = (props) => {
-  const [words, updateWords] = useState([
-    { id: 1, inputWord: "suis", setup: "Je", isCorrect: false },
-    { id: 2, inputWord: "es", setup: "Tu", isCorrect: false },
-    { id: 3, inputWord: "sommes", setup: "Nous", isCorrect: false },
-    { id: 4, inputWord: "sont", setup: "Ils", isCorrect: false },
-  ]);
-
-  const [isWrong, setIsWrong] = useState(false);
-
   function checkIfFinished(item) {
     return item.isCorrect === true;
   }
@@ -52,18 +43,18 @@ const Conjugation = (props) => {
       comparingItems[0].id === comparingItems[1].id &&
       comparingItems[0] !== comparingItems[1]
     ) {
-      const newCorrect = words.map((item) => {
+      const newCorrect = props.content.map((item) => {
         if (item.id + "" === e.target.id) {
           item.isCorrect = true;
           return item;
         }
         return item;
       });
-      updateWords(newCorrect);
+      props.updateContent(newCorrect);
     } else if (comparingItems.length === 2) {
-      setIsWrong(true);
+      props.setIsWrong(true);
       setTimeout(() => {
-        setIsWrong(false);
+        props.setIsWrong(false);
       }, 1000);
     }
     // reset compareArray also reset colors
@@ -76,7 +67,7 @@ const Conjugation = (props) => {
     }
   };
 
-  if (words.every(checkIfFinished)) {
+  if (props.content.every(checkIfFinished)) {
     // added a setTimeout because React NEEDED to render this page before changing to the next
     setTimeout(() => {
       props.updateSection();
@@ -88,7 +79,7 @@ const Conjugation = (props) => {
       <h2>Place the correct words in their correct positions</h2>
       <div>
         <ul>
-          {words.map((word) =>
+          {props.content.map((word) =>
             word.isCorrect ? null : (
               <LiInline id={word.id} onClick={clickHandler}>
                 {word.inputWord}
@@ -98,7 +89,7 @@ const Conjugation = (props) => {
         </ul>
       </div>
       <div>
-        {words.map((word) => {
+        {props.content.map((word) => {
           return (
             <p>
               {word.setup}
@@ -113,7 +104,7 @@ const Conjugation = (props) => {
           );
         })}
       </div>
-      <Wrong isWrong={isWrong} />
+      <Wrong isWrong={props.isWrong} />
     </div>
   );
 };

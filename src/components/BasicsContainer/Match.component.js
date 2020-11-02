@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Card from "./Card.component";
 import styled from "styled-components";
 import Wrong from "./Wrong.component";
@@ -23,39 +23,22 @@ const FrenchContainer = styled.div`
 `;
 
 function Match(props) {
-  const [cards, updateCards] = useState({
-    englishWords: [
-      { id: 1, word: "Hello", isCorrect: false, isCurrent: false },
-      { id: 2, word: "Bye", isCorrect: false, isCurrent: false },
-      { id: 3, word: "How are you?", isCorrect: false, isCurrent: false },
-      { id: 4, word: "Where am I?", isCorrect: false, isCurrent: false },
-    ],
-    frenchWords: [
-      { id: 1, word: "Salut", isCorrect: false, isCurrent: false },
-      { id: 2, word: "Au revoir", isCorrect: false, isCurrent: false },
-      { id: 3, word: "Comment ca va", isCorrect: false, isCurrent: false },
-      { id: 4, word: "Ou je suis", isCorrect: false, isCurrent: false },
-    ],
-  });
-
-  const [isWrong, setIsWrong] = useState(false);
-
   function resetCurrent() {
-    cards.englishWords.map((item) => {
+    props.cards.englishWords.map((item) => {
       item.isCurrent = false;
       return item;
     });
-    cards.frenchWords.map((item) => {
+    props.cards.frenchWords.map((item) => {
       item.isCurrent = false;
       return item;
     });
   }
 
-  const currentEnglishWord = cards.englishWords.filter((item) => {
+  const currentEnglishWord = props.cards.englishWords.filter((item) => {
     return item.isCurrent === true;
   });
 
-  const currentFrenchWord = cards.frenchWords.filter((item) => {
+  const currentFrenchWord = props.cards.frenchWords.filter((item) => {
     return item.isCurrent === true;
   });
 
@@ -72,27 +55,27 @@ function Match(props) {
       resetCurrent();
     } else {
       setTimeout(() => {
-        setIsWrong(true);
+        props.setIsWrong(true);
       }, 50);
       setTimeout(() => {
-        setIsWrong(false);
+        props.setIsWrong(false);
       }, 1050);
       resetCurrent();
     }
   }
 
   const englishClickHandler = (e, index) => {
-    const newCards = { ...cards };
+    const newCards = { ...props.cards };
     newCards.englishWords[index].isCurrent = true;
-    updateCards(newCards);
+    props.updateCards(newCards);
   };
   const frenchClickHandler = (e, index) => {
-    const newCards = { ...cards };
+    const newCards = { ...props.cards };
     newCards.frenchWords[index].isCurrent = true;
-    updateCards(newCards);
+    props.updateCards(newCards);
   };
 
-  const englishCardsList = cards.englishWords.map((item, index) => {
+  const englishCardsList = props.cards.englishWords.map((item, index) => {
     let cardStyle = "";
     if (item.isCurrent) {
       cardStyle = "card current";
@@ -113,7 +96,7 @@ function Match(props) {
       </Card>
     );
   });
-  const frenchCardsList = cards.frenchWords.map((item, index) => {
+  const frenchCardsList = props.cards.frenchWords.map((item, index) => {
     let cardStyle = "";
     if (item.isCurrent) {
       cardStyle = "card current";
@@ -139,7 +122,7 @@ function Match(props) {
     return item.isCorrect === true;
   }
 
-  if (cards.englishWords.every(checkIfAllIsCorrectIsTrue)) {
+  if (props.cards.englishWords.every(checkIfAllIsCorrectIsTrue)) {
     setTimeout(() => {
       props.updateSection();
     }, 1000);
@@ -152,7 +135,7 @@ function Match(props) {
         <EnglishContainer>{englishCardsList}</EnglishContainer>
         <FrenchContainer>{frenchCardsList}</FrenchContainer>
       </WordsContainer>
-      <Wrong isWrong={isWrong} />
+      <Wrong isWrong={props.isWrong} />
     </div>
   );
 }

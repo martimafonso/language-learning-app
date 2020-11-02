@@ -53,59 +53,18 @@ const MarginContainer = styled.div`
    OR will create the function inside of here.
 */
 
-export const Intro = ({ updateSection }) => {
-  const [introContent, updateIntroContent] = useState({
-    words: [
-      { word: "Chien", id: 1, isCorrect: false, isCurrent: false },
-      { word: "Chat", id: 2, isCorrect: false, isCurrent: false },
-      { word: "Personne", id: 3, isCorrect: false, isCurrent: false },
-      { word: "Oiseau", id: 4, isCorrect: false, isCurrent: false },
-    ],
-    imgs: [
-      {
-        url:
-          "https://cdn.images.express.co.uk/img/dynamic/1/590x/dog-650299.jpg",
-        id: 1,
-        isCorrect: false,
-        isCurrent: false,
-      },
-      {
-        url:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg",
-        id: 2,
-        isCorrect: false,
-        isCurrent: false,
-      },
-      {
-        url:
-          "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        id: 3,
-        isCorrect: false,
-        isCurrent: false,
-      },
-      {
-        url:
-          "https://images.pexels.com/photos/2662434/pexels-photo-2662434.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        id: 4,
-        isCorrect: false,
-        isCurrent: false,
-      },
-    ],
-  });
-
-  const [isWrong, setIsWrong] = useState(false);
-
+export const Intro = (props) => {
   const resetCurrent = () => {
-    let words = introContent.words.map((word) => {
+    let words = props.content.words.map((word) => {
       word.isCurrent = false;
       return word;
     });
-    let imgs = introContent.imgs.map((img) => {
+    let imgs = props.content.imgs.map((img) => {
       img.isCurrent = false;
       return img;
     });
     console.log("reseting isCurrent");
-    updateIntroContent({ words: [...words], imgs: [...imgs] });
+    props.updateContent({ words: [...words], imgs: [...imgs] });
   };
 
   // A large function for handling updating state and
@@ -113,17 +72,17 @@ export const Intro = ({ updateSection }) => {
   const clickHandler = (obj) => {
     // Return word/img if they have isCurrent === true
     let isCurrent = function () {
-      let words = introContent.words.filter((word) => {
+      let words = props.content.words.filter((word) => {
         return word.isCurrent === true;
       });
-      let imgs = introContent.imgs.filter((img) => {
+      let imgs = props.content.imgs.filter((img) => {
         return img.isCurrent === true;
       });
       return [...imgs, ...words];
     };
 
     // Finding the word/img if clicked on and making isCurrent = true
-    let words = introContent.words.map((word) => {
+    let words = props.content.words.map((word) => {
       if (word === obj) {
         word.isCurrent = true;
         return word;
@@ -131,7 +90,7 @@ export const Intro = ({ updateSection }) => {
         return word;
       }
     });
-    let imgs = introContent.imgs.map((img) => {
+    let imgs = props.content.imgs.map((img) => {
       if (img === obj) {
         img.isCurrent = true;
         return img;
@@ -149,24 +108,24 @@ export const Intro = ({ updateSection }) => {
         compareArr[0].isCorrect = true;
         compareArr[1].isCorrect = true;
       } else {
-        setIsWrong(true);
+        props.setIsWrong(true);
         setTimeout(() => {
-          setIsWrong(false);
+          props.setIsWrong(false);
         }, 1000);
       }
       resetCurrent();
       console.log("compare arr is empty");
     }
-    updateIntroContent({ words: [...words], imgs: [...imgs] });
+    props.updateContent({ words: [...words], imgs: [...imgs] });
   };
 
   function compare(item) {
     return item.isCorrect === true;
   }
 
-  if (introContent.words.every(compare)) {
+  if (props.content.words.every(compare)) {
     setTimeout(() => {
-      updateSection();
+      props.updateSection();
     }, 500);
   }
 
@@ -174,7 +133,7 @@ export const Intro = ({ updateSection }) => {
     <MarginContainer>
       <h2>Match each word to their image</h2>
       <WordsContainer>
-        {introContent.words.map((word) => {
+        {props.content.words.map((word) => {
           return (
             <Word
               style={word.isCurrent ? { color: "red" } : { color: "black" }}
@@ -188,7 +147,7 @@ export const Intro = ({ updateSection }) => {
         })}
       </WordsContainer>
       <ImgsContainer>
-        {introContent.imgs.map((img) => {
+        {props.content.imgs.map((img) => {
           return (
             <Img
               style={
@@ -203,7 +162,7 @@ export const Intro = ({ updateSection }) => {
           );
         })}
       </ImgsContainer>
-      <Wrong isWrong={isWrong} />
+      <Wrong isWrong={props.isWrong} />
     </MarginContainer>
   );
 };

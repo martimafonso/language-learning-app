@@ -38,60 +38,48 @@ const StyledButton = styled.button`
 `;
 
 export const FillInTheBlank = (props) => {
-  const [input, setInput] = useState("");
-
-  const [isWrong, setIsWrong] = useState(false);
-
-  const [word, updateWord] = useState({
-    word: "chien",
-    englishSentence: "The dog likes pizza",
-    frenchSentencePt1: "La ",
-    frenchSentencePt2: " aime la Pizza",
-    isCorrect: false,
-  });
-
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    let newWord = { ...word };
-    if (input === word.word) {
+    let newWord = { ...props.word };
+    if (props.input === props.word.word) {
       newWord.isCorrect = true;
-      updateWord(newWord);
+      props.updateWord(newWord);
     } else {
-      setIsWrong(true);
+      props.setIsWrong(true);
       setTimeout(() => {
-        setIsWrong(false);
+        props.setIsWrong(false);
       }, 1000);
     }
   };
 
   const onChangeHandler = (e) => {
-    setInput(e.target.value);
+    props.setInput(e.target.value);
   };
 
-  if (word.isCorrect) {
+  if (props.word.isCorrect) {
     setTimeout(() => {
       props.updateSection();
     }, 500);
   }
 
   const style = {
-    opacity: word.isCorrect ? ".5" : "1",
+    opacity: props.word.isCorrect ? ".5" : "1",
   };
 
   return (
     <>
       <Section style={style}>
         <form onSubmit={onSubmitHandler}>
-          <P>{word.englishSentence}</P>
+          <P>{props.word.englishSentence}</P>
           <P>
-            {word.frenchSentencePt1}
+            {props.word.frenchSentencePt1}
             <Input tabIndex={1} onChange={onChangeHandler} type="text" />
-            {word.frenchSentencePt2}
+            {props.word.frenchSentencePt2}
           </P>
           <StyledButton type="submit">Check</StyledButton>
         </form>
       </Section>
-      <Wrong isWrong={isWrong} />
+      <Wrong isWrong={props.isWrong} />
     </>
   );
 };
