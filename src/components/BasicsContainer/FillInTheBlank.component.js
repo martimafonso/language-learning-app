@@ -8,7 +8,7 @@ const Input = styled.input`
   border: none;
   outline: none;
   border-bottom: 1px solid black;
-  width: 50px;
+  width: 70px;
   text-align: center;
 `;
 
@@ -50,6 +50,7 @@ export const FillInTheBlank = (props) => {
         props.setIsWrong(false);
       }, 1000);
     }
+    props.setInput("");
   };
 
   const onChangeHandler = (e) => {
@@ -73,7 +74,12 @@ export const FillInTheBlank = (props) => {
           <P>{props.word.englishSentence}</P>
           <P>
             {props.word.frenchSentencePt1}
-            <Input tabIndex={1} onChange={onChangeHandler} type="text" />
+            <Input
+              tabIndex={1}
+              value={props.input}
+              onChange={onChangeHandler}
+              type="text"
+            />
             {props.word.frenchSentencePt2}
           </P>
           <StyledButton type="submit">Check</StyledButton>

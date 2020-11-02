@@ -18,6 +18,7 @@ const Word = styled.div`
   border-radius: 10px;
   box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.25);
   cursor: pointer;
+  transition: all 0.25s ease;
   &:hover {
     color: red;
   }
@@ -38,6 +39,7 @@ const Img = styled.img`
   box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   overflow: hidden;
+  transition: all 0.25s ease;
   &:hover {
     border-color: black;
   }
