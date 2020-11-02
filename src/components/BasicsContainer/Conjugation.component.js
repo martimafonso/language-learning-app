@@ -16,7 +16,7 @@ const LiInline = styled.li`
 const Input = styled.input`
   border: none;
   border-bottom: 1px solid gray;
-  width: 50px;
+  width: 80px;
   cursor: pointer;
   text-align: center;
   font-size: 0.9rem;

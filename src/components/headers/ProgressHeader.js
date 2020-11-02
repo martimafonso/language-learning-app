@@ -29,17 +29,18 @@ const Header = (props) => {
       position: absolute;
       top: 0;
       left: 0;
-      width: ${props.progress};
+      width: 0;
       height: 10px;
       background-color: black;
     }
   `;
+
   return (
     <MarginContainer>
       <HeaderContainer>
         <LeaveBtn />
         <ProgressBarContainer>
-          <div></div>
+          <div style={{ width: props.progress }}></div>
         </ProgressBarContainer>
         <DivFlex1>
           <img

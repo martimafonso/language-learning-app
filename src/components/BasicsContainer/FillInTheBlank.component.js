@@ -69,6 +69,7 @@ export const FillInTheBlank = (props) => {
 
   return (
     <>
+      <h2>Fill In The Blank</h2>
       <Section style={style}>
         <form onSubmit={onSubmitHandler}>
           <P>{props.word.englishSentence}</P>
