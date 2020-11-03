@@ -135,13 +135,15 @@ export const Intro = (props) => {
     <MarginContainer>
       <h2>Match each word to their image</h2>
       <WordsContainer>
-        {props.content.words.map((word) => {
+        {props.content.words.map((word, index) => {
           return (
             <Word
+              tabIndex={word.isCorrect ? null : 0}
               style={word.isCurrent ? { color: "red" } : { color: "black" }}
               key={"word" + word.id}
               className={word.isCorrect ? "correct" : ""}
               onClick={() => clickHandler(word)}
+              onKeyPress={() => clickHandler(word)}
             >
               <p>{word.word}</p>
             </Word>
@@ -149,15 +151,18 @@ export const Intro = (props) => {
         })}
       </WordsContainer>
       <ImgsContainer>
-        {props.content.imgs.map((img) => {
+        {props.content.imgs.map((img, index) => {
           return (
             <Img
+              tabIndex={img.isCorrect ? null : 0}
               style={
                 img.isCurrent ? { borderColor: "red" } : { color: "black" }
               }
               key={"img" + img.id}
               className={img.isCorrect ? "correct" : ""}
               onClick={() => clickHandler(img)}
+              onKeyPress={() => clickHandler(img)}
+              onEnter
               src={img.url}
               alt="a corresponding picture for each word"
             />

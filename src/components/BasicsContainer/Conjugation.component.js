@@ -25,6 +25,7 @@ const Input = styled.input`
   }
   &:focus {
     outline: none;
+    background-color: #ddd;
   }
 `;
 
@@ -81,7 +82,12 @@ const Conjugation = (props) => {
         <ul>
           {props.content.map((word) =>
             word.isCorrect ? null : (
-              <LiInline id={word.id} onClick={clickHandler}>
+              <LiInline
+                tabIndex={word.isCorrect ? null : 0}
+                id={word.id}
+                onKeyPress={clickHandler}
+                onClick={clickHandler}
+              >
                 {word.inputWord}
               </LiInline>
             )
@@ -94,9 +100,11 @@ const Conjugation = (props) => {
             <p>
               {word.setup}
               <Input
+                tabIndex={word.isCorrect ? null : 0}
                 id={word.id}
                 readOnly
                 value={word.isCorrect ? word.inputWord : ""}
+                onKeyPress={clickHandler}
                 onClick={clickHandler}
                 type="text"
               ></Input>

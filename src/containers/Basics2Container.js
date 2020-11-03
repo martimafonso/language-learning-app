@@ -68,18 +68,13 @@ const BasicsContainer2 = (props) => {
   });
 
   // Conjugation Section
-  // there is an error, I need to have two separate arrs here
-  // in order for this to work
-  const conjugationContent = [
+
+  const [conjugationWords, updateConjugationWords] = useState([
     { id: 1, inputWord: "vais", setup: "Je", isCorrect: false },
     { id: 2, inputWord: "vas", setup: "Tu", isCorrect: false },
     { id: 3, inputWord: "allons", setup: "Nous", isCorrect: false },
     { id: 4, inputWord: "vont", setup: "Elles", isCorrect: false },
-  ];
-
-  const [conjugationWords, updateConjugationWords] = useState(
-    shuffleArray(conjugationContent)
-  );
+  ]);
 
   // Fill In The Blank Section
   const [fITBWord, updateFITBWord] = useState({

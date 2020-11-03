@@ -11,7 +11,11 @@ function Wrong({ isWrong }) {
   const style = {
     opacity: isWrong ? "1" : "0",
   };
-  return <StyledP style={style}>Incorrect</StyledP>;
+  return (
+    <StyledP tabIndex={0} style={style}>
+      Incorrect
+    </StyledP>
+  );
 }
 
 export default Wrong;

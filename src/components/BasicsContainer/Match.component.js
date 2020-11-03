@@ -86,8 +86,10 @@ function Match(props) {
     }
     return (
       <Card
+        tabIndex={0}
         className={cardStyle}
         click={(e) => englishClickHandler(e, index)}
+        keyPress={(e) => englishClickHandler(e, index)}
         key={"english" + item.id}
         id={item.id}
         index={index}
@@ -107,8 +109,10 @@ function Match(props) {
     }
     return (
       <Card
+        tabIndex={0}
         className={cardStyle}
         click={(e) => frenchClickHandler(e, index)}
+        keyPress={(e) => frenchClickHandler(e, index)}
         key={"french" + item.id}
         id={item.id}
         index={index}
