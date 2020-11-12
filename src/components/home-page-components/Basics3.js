@@ -21,13 +21,13 @@ const ImgContainer = styled.div`
 const Basics3 = () => {
   return (
     <ImgContainer>
-      <Link to="/basics2">
+      <Link to="/basics3">
         <img
           height="100px"
           src="https://cdn1.iconfinder.com/data/icons/user-interface-basics/512/BI_095_box-512.png"
           alt="whatever"
         />
-        <p>Basics II</p>
+        <p>Basics III</p>
       </Link>
     </ImgContainer>
   );
