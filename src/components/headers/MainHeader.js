@@ -14,13 +14,13 @@ const Header = styled.div`
     height: 100%;
     transition: background-color 0.5s ease;
     &:hover {
-      background-color: #c1c1c1;
+      background-color: #008eca;
     }
   }
 `;
 
 const MarginContainer = styled.div`
-  background-color: #ddd;
+  background-color: #00b1fd;
 `;
 
 const StyledLink = styled.div`

@@ -18,7 +18,7 @@ const ImgContainer = styled.div`
   }
 `;
 
-const Basics2 = () => {
+const Basics3 = () => {
   return (
     <ImgContainer>
       <Link to="/basics2">
@@ -33,4 +33,4 @@ const Basics2 = () => {
   );
 };
 
-export default Basics2;
+export default Basics3;

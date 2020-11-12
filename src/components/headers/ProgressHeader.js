@@ -15,7 +15,7 @@ const DivFlex1 = styled.div`
 `;
 
 const MarginContainer = styled.div`
-  background-color: #ddd;
+  background-color: #00b1fd;
   padding: 5px;
 `;
 
