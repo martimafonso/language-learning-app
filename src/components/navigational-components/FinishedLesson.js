@@ -15,12 +15,12 @@ const Button = styled.button`
   }
 `;
 
-const FishishedLesson = (props) => {
+const FishishedLesson = () => {
   return (
     <>
       <h2>Yay! You completed this Excersize!</h2>
       <Link to="/">
-        <Button onClick={props.returnToMain}>Go back to your Homepage</Button>
+        <Button>Go back to your Homepage</Button>
       </Link>
     </>
   );

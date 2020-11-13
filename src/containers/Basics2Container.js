@@ -167,7 +167,7 @@ const BasicsContainer2 = (props) => {
         />
       );
     } else if (section === 5) {
-      return <FinishedLesson returnToMain={props.returnToMain} />;
+      return <FinishedLesson />;
     }
   };
 
