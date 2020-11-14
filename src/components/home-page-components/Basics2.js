@@ -18,9 +18,12 @@ const ImgContainer = styled.div`
   }
 `;
 
-const Basics2 = () => {
+const Basics2 = ({ lessonsCompleted }) => {
+  const completedStyle = {
+    opacity: 0.4,
+  };
   return (
-    <ImgContainer>
+    <ImgContainer style={lessonsCompleted[1] ? completedStyle : null}>
       <Link to="/basics2">
         <img
           height="100px"

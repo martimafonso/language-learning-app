@@ -15,7 +15,8 @@ const Button = styled.button`
   }
 `;
 
-const FishishedLesson = () => {
+const FishishedLesson = (props) => {
+  props.lessonsCompleted[0] = true;
   return (
     <>
       <h2>Yay! You completed this Excersize!</h2>

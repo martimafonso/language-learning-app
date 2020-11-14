@@ -9,15 +9,15 @@ const FlexContainer = styled.div`
   display: flex;
 `;
 
-const MainNavigationSection = () => {
+const MainNavigationSection = (props) => {
   return (
     <div>
       <MainHeader />
       <h2>Your Lessons</h2>
       <FlexContainer>
-        <Basics />
-        <Basics2 />
-        <Basics3 />
+        <Basics lessonsCompleted={props} />
+        <Basics2 lessonsCompleted={props} />
+        <Basics3 lessonsCompleted={props} />
       </FlexContainer>
     </div>
   );
