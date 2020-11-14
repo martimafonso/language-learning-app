@@ -153,12 +153,7 @@ const BasicsContainer = (props) => {
         />
       );
     } else if (section === 0) {
-      return (
-        <FinishedLesson
-          lessonsCompleted={props.lessonsCompleted}
-          setLessonsCompleted={props.setLessonsCompleted}
-        />
-      );
+      return <FinishedLesson setLesson1Completed={props.setLesson1Completed} />;
     }
   };
 

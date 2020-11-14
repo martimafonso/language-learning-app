@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import MainNavigationSection from "./components/home-page-components/MainNavigationSection";
 import Contact from "./components/contact-components/Contact";
@@ -10,11 +10,30 @@ import Basics2Container from "./containers/Basics2Container";
 import Basics3Container from "./containers/Basics3Container";
 
 function App() {
-  const [lessonsCompleted, setLessonsCompleted] = useState([
-    false,
-    true,
-    false,
-  ]);
+  const [lessonsCompleted, setLessonsCompleted] = useState([]);
+
+  const lesson1Handler = () => {
+    let newArray = [...lessonsCompleted];
+    newArray[0] = true;
+    setTimeout(() => {
+      setLessonsCompleted(newArray);
+    }, 10);
+  };
+  const lesson2Handler = () => {
+    let newArray = [...lessonsCompleted];
+    newArray[1] = true;
+    setTimeout(() => {
+      setLessonsCompleted(newArray);
+    }, 10);
+  };
+  const lesson3Handler = () => {
+    let newArray = [...lessonsCompleted];
+    newArray[2] = true;
+    setTimeout(() => {
+      setLessonsCompleted(newArray);
+    }, 10);
+  };
+
   return (
     <div className="App">
       <Router>
@@ -30,14 +49,21 @@ function App() {
           <Route
             path="/basics"
             render={() => (
-              <BasicsContainer
-                lessonsCompleted={lessonsCompleted}
-                setLessonsCompleted={setLessonsCompleted}
-              />
+              <BasicsContainer setLesson1Completed={lesson1Handler} />
             )}
           />
-          <Route path="/basics2" component={() => <Basics2Container />} />
-          <Route path="/basics3" component={() => <Basics3Container />} />
+          <Route
+            path="/basics2"
+            render={() => (
+              <Basics2Container setLesson2Completed={lesson2Handler} />
+            )}
+          />
+          <Route
+            path="/basics3"
+            render={() => (
+              <Basics3Container setLesson3Completed={lesson3Handler} />
+            )}
+          />
         </Switch>
       </Router>
     </div>

@@ -16,7 +16,15 @@ const Button = styled.button`
 `;
 
 const FishishedLesson = (props) => {
-  props.lessonsCompleted[0] = true;
+  if (props.setLesson1Completed) {
+    props.setLesson1Completed();
+  }
+  if (props.setLesson2Completed) {
+    props.setLesson2Completed();
+  }
+  if (props.setLesson3Completed) {
+    props.setLesson3Completed();
+  }
   return (
     <>
       <h2>Yay! You completed this Excersize!</h2>
