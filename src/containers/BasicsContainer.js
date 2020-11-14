@@ -110,7 +110,7 @@ const BasicsContainer = (props) => {
   }
 
   let currentSection = () => {
-    if (section === 4) {
+    if (section === 0) {
       return (
         <Intro
           updateSection={() => updateSection(section + 1)}
@@ -152,7 +152,7 @@ const BasicsContainer = (props) => {
           setIsWrong={setIsWrong}
         />
       );
-    } else if (section === 0) {
+    } else if (section === 4) {
       return <FinishedLesson setLesson1Completed={props.setLesson1Completed} />;
     }
   };
