@@ -1,11 +1,13 @@
 import React from "react";
 import MainHeader from "../headers/MainHeader";
+import LanguagesLinks from "./LanguagesLinks.component";
 
 const Languages = () => {
   return (
     <div>
       <MainHeader />
-      <h1> Your Languages </h1>
+      <h2> Your Languages </h2>
+      <LanguagesLinks />
     </div>
   );
 };
