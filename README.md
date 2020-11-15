@@ -13,7 +13,8 @@ I've used class state, you know, this.state, so it made sense it wouldn't be too
 the fact you couldn't use the setWhatever too many times or it would throw you an error but I learned how to make the 
 app more efficient and use less.
 
-Lastly, making style change according to the current state was foreign to me, but I'm gaining traction with using this. This
-comes in handy because of all the matching-type games you need an isCurrent, isCorrect so the styling changes if you click
-on this or that and resets if you choose two wrong options or if you do end up getting something correct, it will fade out
-becomming unclickable.
+Another difficulty was making styles be dynamic corresponding to state. I set up definers like isCorrect and isCurrent into the state
+in order for this to work. This makes it so, in the matching game components, you can only select 2 items and a style appears per selected 
+item and fully disappears when that second item gets selected. Also when 2 items are selected and the items DO NOT MATCH a component appears
+telling you what you selected was wrong. Also if you choose 2 correct items the opacity on each item gets changed to be more invisible, letting
+the user know you got them correct.
