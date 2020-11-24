@@ -5,7 +5,7 @@ const Friends = () => {
   return (
     <div>
       <MainHeader />
-      <h1> Your Friends </h1>
+      <h2> Your Friends </h2>
     </div>
   );
 };
