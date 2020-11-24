@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Conjugation from "../components/BasicsContainer/Conjugation.component";
 import Match from "../components/BasicsContainer/Match.component";
 import ProgressHeader from "../components/headers/ProgressHeader";
 import FinishedLesson from "../components/navigational-components/FinishedLesson";
@@ -67,15 +66,6 @@ const BasicsContainer2 = (props) => {
     frenchWords: shuffleArray(frenchWords),
   });
 
-  // Conjugation Section
-
-  const [conjugationWords, updateConjugationWords] = useState([
-    { id: 1, inputWord: "vais", setup: "Je", isCorrect: false },
-    { id: 2, inputWord: "vas", setup: "Tu", isCorrect: false },
-    { id: 3, inputWord: "allons", setup: "Nous", isCorrect: false },
-    { id: 4, inputWord: "vont", setup: "Elles", isCorrect: false },
-  ]);
-
   // Fill In The Blank Section
   const [fITBWord, updateFITBWord] = useState({
     word: "chat",
@@ -97,7 +87,7 @@ const BasicsContainer2 = (props) => {
   const [isWrong, setIsWrong] = useState(false);
 
   const [section, updateSection] = useState(0);
-  let lessonProgress = (section * 100) / 5;
+  let lessonProgress = (section * 100) / 4;
 
   function shuffleArray(array) {
     let curId = array.length;
@@ -136,16 +126,6 @@ const BasicsContainer2 = (props) => {
       );
     } else if (section === 2) {
       return (
-        <Conjugation
-          updateSection={() => updateSection(section + 1)}
-          content={conjugationWords}
-          updateContent={updateConjugationWords}
-          isWrong={isWrong}
-          setIsWrong={setIsWrong}
-        />
-      );
-    } else if (section === 3) {
-      return (
         <FillInTheBlank
           updateSection={() => updateSection(section + 1)}
           word={fITBWord}
@@ -156,7 +136,7 @@ const BasicsContainer2 = (props) => {
           setIsWrong={setIsWrong}
         />
       );
-    } else if (section === 4) {
+    } else if (section === 3) {
       return (
         <Match
           updateSection={() => updateSection(section + 1)}
@@ -166,7 +146,7 @@ const BasicsContainer2 = (props) => {
           setIsWrong={setIsWrong}
         />
       );
-    } else if (section === 5) {
+    } else if (section === 4) {
       return <FinishedLesson setLesson2Completed={props.setLesson2Completed} />;
     }
   };

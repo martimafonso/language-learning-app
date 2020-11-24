@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Conjugation from "../components/BasicsContainer/Conjugation.component";
 import Match from "../components/BasicsContainer/Match.component";
 import ProgressHeader from "../components/headers/ProgressHeader";
 import FinishedLesson from "../components/navigational-components/FinishedLesson";
@@ -69,18 +68,6 @@ const BasicsContainer = (props) => {
     frenchWords: shuffleArray(frenchWords),
   });
 
-  // Conjugation Section
-
-  const conjugationContent = [
-    { id: 1, inputWord: "suis", setup: "Je", isCorrect: false },
-    { id: 2, inputWord: "es", setup: "Tu", isCorrect: false },
-    { id: 3, inputWord: "sommes", setup: "Nous", isCorrect: false },
-    { id: 4, inputWord: "sont", setup: "Ils", isCorrect: false },
-  ];
-  const [conjugationWords, updateConjugationWords] = useState(
-    shuffleArray(conjugationContent)
-  );
-
   // Fill In The Blank Section
   const [fITBWord, updateFITBWord] = useState({
     word: "chien",
@@ -95,7 +82,7 @@ const BasicsContainer = (props) => {
   const [isWrong, setIsWrong] = useState(false);
 
   const [section, updateSection] = useState(0);
-  let lessonProgress = (section * 100) / 4;
+  let lessonProgress = (section * 100) / 3;
 
   function shuffleArray(array) {
     let curId = array.length;
@@ -132,16 +119,6 @@ const BasicsContainer = (props) => {
       );
     } else if (section === 2) {
       return (
-        <Conjugation
-          updateSection={() => updateSection(section + 1)}
-          content={conjugationWords}
-          updateContent={updateConjugationWords}
-          isWrong={isWrong}
-          setIsWrong={setIsWrong}
-        />
-      );
-    } else if (section === 3) {
-      return (
         <FillInTheBlank
           updateSection={() => updateSection(section + 1)}
           word={fITBWord}
@@ -152,7 +129,7 @@ const BasicsContainer = (props) => {
           setIsWrong={setIsWrong}
         />
       );
-    } else if (section === 4) {
+    } else if (section === 3) {
       return <FinishedLesson setLesson1Completed={props.setLesson1Completed} />;
     }
   };

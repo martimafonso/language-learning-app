@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Conjugation from "../components/BasicsContainer/Conjugation.component";
 import Match from "../components/BasicsContainer/Match.component";
 import ProgressHeader from "../components/headers/ProgressHeader";
 import FinishedLesson from "../components/navigational-components/FinishedLesson";
@@ -9,36 +8,36 @@ import { FillInTheBlank } from "../components/BasicsContainer/FillInTheBlank.com
 const BasicsContainer3 = (props) => {
   // Intro Section
   const words = [
-    { word: "Fille", id: 1, isCorrect: false, isCurrent: false },
-    { word: "Garçon", id: 2, isCorrect: false, isCurrent: false },
-    { word: "Heure", id: 3, isCorrect: false, isCurrent: false },
-    { word: "Vélo", id: 4, isCorrect: false, isCurrent: false },
+    { word: "Fleur", id: 1, isCorrect: false, isCurrent: false },
+    { word: "Eau", id: 2, isCorrect: false, isCurrent: false },
+    { word: "salle de Bains", id: 3, isCorrect: false, isCurrent: false },
+    { word: "Cuisine", id: 4, isCorrect: false, isCurrent: false },
   ];
   const imgs = [
     {
       url:
-        "https://images.pexels.com/photos/1391498/pexels-photo-1391498.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+        "https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
       id: 1,
       isCorrect: false,
       isCurrent: false,
     },
     {
       url:
-        "https://images.pexels.com/photos/1374509/pexels-photo-1374509.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+        "https://images.pexels.com/photos/1458684/pexels-photo-1458684.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
       id: 2,
       isCorrect: false,
       isCurrent: false,
     },
     {
       url:
-        "https://images.pexels.com/photos/707676/pexels-photo-707676.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+        "https://images.pexels.com/photos/105934/pexels-photo-105934.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
       id: 3,
       isCorrect: false,
       isCurrent: false,
     },
     {
       url:
-        "https://images.pexels.com/photos/3370153/pexels-photo-3370153.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+        "https://images.pexels.com/photos/4259140/pexels-photo-4259140.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
       id: 4,
       isCorrect: false,
       isCurrent: false,
@@ -51,44 +50,35 @@ const BasicsContainer3 = (props) => {
 
   // Match Section
   const englishWords = [
-    { id: 1, word: "Goodnight", isCorrect: false, isCurrent: false },
-    { id: 2, word: "What", isCorrect: false, isCurrent: false },
-    { id: 3, word: "My friend", isCorrect: false, isCurrent: false },
-    { id: 4, word: "See you later", isCorrect: false, isCurrent: false },
+    { id: 1, word: "To live", isCorrect: false, isCurrent: false },
+    { id: 2, word: "The husband", isCorrect: false, isCurrent: false },
+    { id: 3, word: "The wife", isCorrect: false, isCurrent: false },
+    { id: 4, word: "The kitchen", isCorrect: false, isCurrent: false },
   ];
   const frenchWords = [
-    { id: 1, word: "Bonsoir", isCorrect: false, isCurrent: false },
-    { id: 2, word: "Quel", isCorrect: false, isCurrent: false },
-    { id: 3, word: "Mon ami", isCorrect: false, isCurrent: false },
-    { id: 4, word: "À plus tard", isCorrect: false, isCurrent: false },
+    { id: 1, word: "vivre", isCorrect: false, isCurrent: false },
+    { id: 2, word: "Le mari", isCorrect: false, isCurrent: false },
+    { id: 3, word: "La femme", isCorrect: false, isCurrent: false },
+    { id: 4, word: "La cuisine", isCorrect: false, isCurrent: false },
   ];
   const [cards, updateCards] = useState({
     englishWords: shuffleArray(englishWords),
     frenchWords: shuffleArray(frenchWords),
   });
 
-  // Conjugation Section
-
-  const [conjugationWords, updateConjugationWords] = useState([
-    { id: 1, inputWord: "vais", setup: "Je", isCorrect: false },
-    { id: 2, inputWord: "vas", setup: "Tu", isCorrect: false },
-    { id: 3, inputWord: "allons", setup: "Nous", isCorrect: false },
-    { id: 4, inputWord: "vont", setup: "Elles", isCorrect: false },
-  ]);
-
   // Fill In The Blank Section
   const [fITBWord, updateFITBWord] = useState({
-    word: "chat",
-    englishSentence: "The cat is going to the store.",
-    frenchSentencePt1: "La ",
-    frenchSentencePt2: " va à l’aéroport.",
+    word: "mari",
+    englishSentence: "The wife loves her husband.",
+    frenchSentencePt1: "La femme aime son ",
+    frenchSentencePt2: "",
     isCorrect: false,
   });
   const [fITBWord2, updateFITBWord2] = useState({
-    word: "personne",
-    englishSentence: "A person is eating an orange.",
-    frenchSentencePt1: "La ",
-    frenchSentencePt2: " mange une orange",
+    word: "mange",
+    englishSentence: "He is eating in the kitchen.",
+    frenchSentencePt1: "Le homme ",
+    frenchSentencePt2: " mange dans la cuisine.",
     isCorrect: false,
   });
   const [fITBInput, setFITBInput] = useState("");
@@ -97,7 +87,7 @@ const BasicsContainer3 = (props) => {
   const [isWrong, setIsWrong] = useState(false);
 
   const [section, updateSection] = useState(0);
-  let lessonProgress = (section * 100) / 5;
+  let lessonProgress = (section * 100) / 4;
 
   function shuffleArray(array) {
     let curId = array.length;
@@ -136,16 +126,6 @@ const BasicsContainer3 = (props) => {
       );
     } else if (section === 2) {
       return (
-        <Conjugation
-          updateSection={() => updateSection(section + 1)}
-          content={conjugationWords}
-          updateContent={updateConjugationWords}
-          isWrong={isWrong}
-          setIsWrong={setIsWrong}
-        />
-      );
-    } else if (section === 3) {
-      return (
         <FillInTheBlank
           updateSection={() => updateSection(section + 1)}
           word={fITBWord}
@@ -156,7 +136,7 @@ const BasicsContainer3 = (props) => {
           setIsWrong={setIsWrong}
         />
       );
-    } else if (section === 4) {
+    } else if (section === 3) {
       return (
         <Match
           updateSection={() => updateSection(section + 1)}
@@ -166,7 +146,7 @@ const BasicsContainer3 = (props) => {
           setIsWrong={setIsWrong}
         />
       );
-    } else if (section === 5) {
+    } else if (section === 4) {
       return <FinishedLesson setLesson3Completed={props.setLesson3Completed} />;
     }
   };
