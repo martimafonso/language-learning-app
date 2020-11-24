@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import MainNavigationSection from "./components/home-page-components/MainNavigationSection";
 import Contact from "./components/contact-components/Contact";
