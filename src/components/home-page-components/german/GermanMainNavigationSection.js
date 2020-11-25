@@ -7,6 +7,7 @@ import GermanBasics3Link from "./GermanBasics3Link";
 
 const FlexContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 
 const GermanMainNavigationSection = (props) => {

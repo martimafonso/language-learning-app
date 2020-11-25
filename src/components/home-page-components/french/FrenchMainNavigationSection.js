@@ -7,6 +7,7 @@ import FrenchBasics3 from "./FrenchBasics3Link";
 
 const FlexContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 
 const FrenchMainNavigationSection = (props) => {

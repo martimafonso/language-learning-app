@@ -27,7 +27,15 @@ const Word = styled.div`
 const ImgsContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 4vh;
+  @media (max-width: 500px) {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    img {
+      width: 80%;
+    }
+  }
 `;
 
 const Img = styled.img`
@@ -46,7 +54,7 @@ const Img = styled.img`
 `;
 
 const MarginContainer = styled.div`
-  width: 1000px;
+  max-width: 1000px;
   margin: auto;
 `;
 
