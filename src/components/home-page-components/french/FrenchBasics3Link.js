@@ -18,13 +18,13 @@ const ImgContainer = styled.div`
   }
 `;
 
-const Basics3 = ({ lessonsCompleted }) => {
+const FrenchBasics3Link = ({ lessonsCompleted }) => {
   const completedStyle = {
     opacity: 0.4,
   };
   return (
     <ImgContainer style={lessonsCompleted[2] ? completedStyle : null}>
-      <Link to="/basics3">
+      <Link to="/french/basics3">
         <img
           height="100px"
           src="https://cdn1.iconfinder.com/data/icons/user-interface-basics/512/BI_095_box-512.png"
@@ -36,4 +36,4 @@ const Basics3 = ({ lessonsCompleted }) => {
   );
 };
 
-export default Basics3;
+export default FrenchBasics3Link;

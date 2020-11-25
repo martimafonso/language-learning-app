@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import Match from "../components/BasicsContainer/Match.component";
-import ProgressHeader from "../components/headers/ProgressHeader";
-import FinishedLesson from "../components/navigational-components/FinishedLesson";
-import { Intro } from "../components/BasicsContainer/Intro.component";
-import { FillInTheBlank } from "../components/BasicsContainer/FillInTheBlank.component";
+import Match from "../../BasicsContainer/Match.component";
+import ProgressHeader from "../../headers/ProgressHeader";
+import FinishedLesson from "../../navigational-components/FinishedLesson";
+import { Intro } from "../../BasicsContainer/Intro.component";
+import { FillInTheBlank } from "../../BasicsContainer/FillInTheBlank.component";
 
-const BasicsContainer = (props) => {
+const GermanBasics1Container = (props) => {
   // Intro Section
   const words = [
     { word: "Chien", id: 1, isCorrect: false, isCurrent: false },
@@ -130,7 +130,12 @@ const BasicsContainer = (props) => {
         />
       );
     } else if (section === 3) {
-      return <FinishedLesson setLesson1Completed={props.setLesson1Completed} />;
+      return (
+        <FinishedLesson
+          homeUrl={props.homeUrl}
+          setLesson1Completed={props.setLesson1Completed}
+        />
+      );
     }
   };
 
@@ -139,10 +144,11 @@ const BasicsContainer = (props) => {
       <ProgressHeader
         returnToMain={props.returnToMain}
         progress={lessonProgress + "%"}
+        homeUrl={props.homeUrl}
       />
       {currentSection()}
     </>
   );
 };
 
-export default BasicsContainer;
+export default GermanBasics1Container;

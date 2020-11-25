@@ -38,7 +38,7 @@ const Header = (props) => {
   return (
     <MarginContainer>
       <HeaderContainer>
-        <LeaveBtn />
+        <LeaveBtn homeUrl={props.homeUrl} />
         <ProgressBarContainer>
           <div style={{ width: props.progress }}></div>
         </ProgressBarContainer>

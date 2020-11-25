@@ -18,14 +18,14 @@ const ImgContainer = styled.div`
   }
 `;
 
-const Basics = (props) => {
+const FrenchBasics1Link = (props) => {
   console.log(props);
   const completedStyle = {
     opacity: 0.4,
   };
   return (
     <ImgContainer style={props.lessonsCompleted[0] ? completedStyle : null}>
-      <Link to="/basics">
+      <Link to="/french/basics">
         <img
           height="100px"
           src="https://cdn1.iconfinder.com/data/icons/user-interface-basics/512/BI_095_box-512.png"
@@ -37,4 +37,4 @@ const Basics = (props) => {
   );
 };
 
-export default Basics;
+export default FrenchBasics1Link;

@@ -28,7 +28,7 @@ const FishishedLesson = (props) => {
   return (
     <>
       <h2>Yay! You completed this Excersize!</h2>
-      <Link to="/">
+      <Link to={props.homeUrl}>
         <Button>Go back to your Homepage</Button>
       </Link>
     </>

@@ -18,13 +18,13 @@ const ImgContainer = styled.div`
   }
 `;
 
-const Basics2 = ({ lessonsCompleted }) => {
+const GermanBasics2Link = ({ lessonsCompleted }) => {
   const completedStyle = {
     opacity: 0.4,
   };
   return (
     <ImgContainer style={lessonsCompleted[1] ? completedStyle : null}>
-      <Link to="/basics2">
+      <Link to="/german/basics2">
         <img
           height="100px"
           src="https://cdn1.iconfinder.com/data/icons/user-interface-basics/512/BI_095_box-512.png"
@@ -36,4 +36,4 @@ const Basics2 = ({ lessonsCompleted }) => {
   );
 };
 
-export default Basics2;
+export default GermanBasics2Link;

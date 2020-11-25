@@ -42,10 +42,10 @@ const LeaveBtnContainer = styled.div`
   }
 `;
 
-const LeaveBtn = () => {
+const LeaveBtn = ({ homeUrl }) => {
   return (
     <LeaveBtnContainer>
-      <Link to="/">
+      <Link to={homeUrl}>
         <LeaveBtnDiv></LeaveBtnDiv>
       </Link>
     </LeaveBtnContainer>
