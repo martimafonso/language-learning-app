@@ -162,6 +162,7 @@ const GermanBasics2Container = (props) => {
         returnToMain={props.returnToMain}
         progress={lessonProgress + "%"}
         homeUrl={props.homeUrl}
+        icon={props.icon}
       />
       {currentSection()}
     </>

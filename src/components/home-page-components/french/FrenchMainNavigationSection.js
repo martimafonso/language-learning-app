@@ -12,7 +12,7 @@ const FlexContainer = styled.div`
 const FrenchMainNavigationSection = (props) => {
   return (
     <div>
-      <MainHeader />
+      <MainHeader icon={props.icon} />
       <h2>Your Lessons</h2>
       <FlexContainer>
         <FrenchBasics lessonsCompleted={props} />

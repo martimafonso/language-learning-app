@@ -37,7 +37,7 @@ const StyledLink = styled.div`
   }
 `;
 
-const MainHeader = () => {
+const MainHeader = ({ icon }) => {
   return (
     <MarginContainer>
       <Header>
@@ -58,11 +58,7 @@ const MainHeader = () => {
         </Link>
         <Link to="/languages">
           <StyledLink>
-            <img
-              height="40px"
-              src="https://image.flaticon.com/icons/png/512/496/496394.png"
-              alt="a french icon"
-            />
+            <img height="40px" src={icon} alt="an icon" />
           </StyledLink>
         </Link>
       </Header>

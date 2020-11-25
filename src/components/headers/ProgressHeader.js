@@ -43,12 +43,7 @@ const Header = (props) => {
           <div style={{ width: props.progress }}></div>
         </ProgressBarContainer>
         <DivFlex1>
-          <img
-            width="auto"
-            height="50px"
-            src="https://image.flaticon.com/icons/png/512/496/496394.png"
-            alt="a logo"
-          ></img>
+          <img width="auto" height="50px" src={props.icon} alt="a logo"></img>
         </DivFlex1>
       </HeaderContainer>
     </MarginContainer>

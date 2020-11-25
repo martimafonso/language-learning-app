@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import MainHeader from "../../headers/MainHeader";
-import FrenchBasics from "./GermanBasics1Link";
-import FrenchBasics2 from "./GermanBasics2Link";
-import FrenchBasics3 from "./GermanBasics3Link";
+import GermanBasicsLink from "./GermanBasics1Link";
+import GermanBasics2Link from "./GermanBasics2Link";
+import GermanBasics3Link from "./GermanBasics3Link";
 
 const FlexContainer = styled.div`
   display: flex;
@@ -12,12 +12,12 @@ const FlexContainer = styled.div`
 const GermanMainNavigationSection = (props) => {
   return (
     <div>
-      <MainHeader />
+      <MainHeader icon={props.icon} />
       <h2>Your Lessons</h2>
       <FlexContainer>
-        <FrenchBasics lessonsCompleted={props} />
-        <FrenchBasics2 lessonsCompleted={props} />
-        <FrenchBasics3 lessonsCompleted={props} />
+        <GermanBasicsLink lessonsCompleted={props} />
+        <GermanBasics2Link lessonsCompleted={props} />
+        <GermanBasics3Link lessonsCompleted={props} />
       </FlexContainer>
     </div>
   );
