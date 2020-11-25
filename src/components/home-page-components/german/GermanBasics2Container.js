@@ -8,10 +8,10 @@ import { FillInTheBlank } from "../../BasicsContainer/FillInTheBlank.component";
 const GermanBasics2Container = (props) => {
   // Intro Section
   const words = [
-    { word: "Fille", id: 1, isCorrect: false, isCurrent: false },
-    { word: "Garçon", id: 2, isCorrect: false, isCurrent: false },
-    { word: "Heure", id: 3, isCorrect: false, isCurrent: false },
-    { word: "Vélo", id: 4, isCorrect: false, isCurrent: false },
+    { word: "Mädchen", id: 1, isCorrect: false, isCurrent: false },
+    { word: "Jung", id: 2, isCorrect: false, isCurrent: false },
+    { word: "Zeit", id: 3, isCorrect: false, isCurrent: false },
+    { word: "Fahrrad", id: 4, isCorrect: false, isCurrent: false },
   ];
   const imgs = [
     {
@@ -56,10 +56,10 @@ const GermanBasics2Container = (props) => {
     { id: 4, word: "See you later", isCorrect: false, isCurrent: false },
   ];
   const frenchWords = [
-    { id: 1, word: "Bonsoir", isCorrect: false, isCurrent: false },
-    { id: 2, word: "Quel", isCorrect: false, isCurrent: false },
-    { id: 3, word: "Mon ami", isCorrect: false, isCurrent: false },
-    { id: 4, word: "À plus tard", isCorrect: false, isCurrent: false },
+    { id: 1, word: "Guten Abend", isCorrect: false, isCurrent: false },
+    { id: 2, word: "Was", isCorrect: false, isCurrent: false },
+    { id: 3, word: "Mein Freund", isCorrect: false, isCurrent: false },
+    { id: 4, word: "Bis später", isCorrect: false, isCurrent: false },
   ];
   const [cards, updateCards] = useState({
     englishWords: shuffleArray(englishWords),
@@ -68,17 +68,17 @@ const GermanBasics2Container = (props) => {
 
   // Fill In The Blank Section
   const [fITBWord, updateFITBWord] = useState({
-    word: "chat",
+    word: "Katze",
     englishSentence: "The cat is going to the store.",
-    frenchSentencePt1: "La ",
-    frenchSentencePt2: " va à l’aéroport.",
+    frenchSentencePt1: "Die ",
+    frenchSentencePt2: " geht zum Flughafen",
     isCorrect: false,
   });
   const [fITBWord2, updateFITBWord2] = useState({
-    word: "personne",
+    word: "Person",
     englishSentence: "A person is eating an orange.",
-    frenchSentencePt1: "La ",
-    frenchSentencePt2: " mange une orange",
+    frenchSentencePt1: "Die ",
+    frenchSentencePt2: " isst eine Orange.",
     isCorrect: false,
   });
   const [fITBInput, setFITBInput] = useState("");

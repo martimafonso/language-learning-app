@@ -8,10 +8,10 @@ import { FillInTheBlank } from "../../BasicsContainer/FillInTheBlank.component";
 const GermanBasics3Container = (props) => {
   // Intro Section
   const words = [
-    { word: "Fleur", id: 1, isCorrect: false, isCurrent: false },
-    { word: "Eau", id: 2, isCorrect: false, isCurrent: false },
-    { word: "salle de Bains", id: 3, isCorrect: false, isCurrent: false },
-    { word: "Cuisine", id: 4, isCorrect: false, isCurrent: false },
+    { word: "Blume", id: 1, isCorrect: false, isCurrent: false },
+    { word: "Wasser", id: 2, isCorrect: false, isCurrent: false },
+    { word: "Badenzimmer", id: 3, isCorrect: false, isCurrent: false },
+    { word: "Küche", id: 4, isCorrect: false, isCurrent: false },
   ];
   const imgs = [
     {
@@ -56,10 +56,10 @@ const GermanBasics3Container = (props) => {
     { id: 4, word: "The kitchen", isCorrect: false, isCurrent: false },
   ];
   const frenchWords = [
-    { id: 1, word: "vivre", isCorrect: false, isCurrent: false },
-    { id: 2, word: "Le mari", isCorrect: false, isCurrent: false },
-    { id: 3, word: "La femme", isCorrect: false, isCurrent: false },
-    { id: 4, word: "La cuisine", isCorrect: false, isCurrent: false },
+    { id: 1, word: "leben", isCorrect: false, isCurrent: false },
+    { id: 2, word: "Der Ehemann", isCorrect: false, isCurrent: false },
+    { id: 3, word: "die Frau", isCorrect: false, isCurrent: false },
+    { id: 4, word: "die Küche", isCorrect: false, isCurrent: false },
   ];
   const [cards, updateCards] = useState({
     englishWords: shuffleArray(englishWords),
@@ -68,17 +68,17 @@ const GermanBasics3Container = (props) => {
 
   // Fill In The Blank Section
   const [fITBWord, updateFITBWord] = useState({
-    word: "mari",
+    word: "Ehemann",
     englishSentence: "The wife loves her husband.",
-    frenchSentencePt1: "La femme aime son ",
-    frenchSentencePt2: "",
+    frenchSentencePt1: "Die frau liebt ihren ",
+    frenchSentencePt2: ".",
     isCorrect: false,
   });
   const [fITBWord2, updateFITBWord2] = useState({
-    word: "mange",
+    word: "isst",
     englishSentence: "He is eating in the kitchen.",
-    frenchSentencePt1: "Le homme ",
-    frenchSentencePt2: " mange dans la cuisine.",
+    frenchSentencePt1: "Er ",
+    frenchSentencePt2: " in der Küche.",
     isCorrect: false,
   });
   const [fITBInput, setFITBInput] = useState("");

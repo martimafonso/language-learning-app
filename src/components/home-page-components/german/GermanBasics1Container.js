@@ -8,10 +8,10 @@ import { FillInTheBlank } from "../../BasicsContainer/FillInTheBlank.component";
 const GermanBasics1Container = (props) => {
   // Intro Section
   const words = [
-    { word: "Chien", id: 1, isCorrect: false, isCurrent: false },
-    { word: "Chat", id: 2, isCorrect: false, isCurrent: false },
-    { word: "Personne", id: 3, isCorrect: false, isCurrent: false },
-    { word: "Oiseau", id: 4, isCorrect: false, isCurrent: false },
+    { word: "Hund", id: 1, isCorrect: false, isCurrent: false },
+    { word: "Katze", id: 2, isCorrect: false, isCurrent: false },
+    { word: "Person", id: 3, isCorrect: false, isCurrent: false },
+    { word: "Vogel", id: 4, isCorrect: false, isCurrent: false },
   ];
   const imgs = [
     {
@@ -57,10 +57,10 @@ const GermanBasics1Container = (props) => {
     { id: 4, word: "Where am I?", isCorrect: false, isCurrent: false },
   ];
   const frenchWords = [
-    { id: 1, word: "Salut", isCorrect: false, isCurrent: false },
-    { id: 2, word: "Au revoir", isCorrect: false, isCurrent: false },
-    { id: 3, word: "Comment ca va", isCorrect: false, isCurrent: false },
-    { id: 4, word: "Ou je suis", isCorrect: false, isCurrent: false },
+    { id: 1, word: "Hallo", isCorrect: false, isCurrent: false },
+    { id: 2, word: "Auf wiedersehen", isCorrect: false, isCurrent: false },
+    { id: 3, word: "Wie geht es dir?", isCorrect: false, isCurrent: false },
+    { id: 4, word: "Wo bin ich?", isCorrect: false, isCurrent: false },
   ];
 
   const [cards, updateCards] = useState({
@@ -70,10 +70,10 @@ const GermanBasics1Container = (props) => {
 
   // Fill In The Blank Section
   const [fITBWord, updateFITBWord] = useState({
-    word: "chien",
+    word: "Hund",
     englishSentence: "The dog likes pizza",
-    frenchSentencePt1: "La ",
-    frenchSentencePt2: " aime la Pizza",
+    frenchSentencePt1: "Der ",
+    frenchSentencePt2: " mag Pizza",
     isCorrect: false,
   });
   const [fITBInput, setFITBInput] = useState("");
