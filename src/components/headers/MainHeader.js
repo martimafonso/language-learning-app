@@ -58,7 +58,14 @@ const MainHeader = ({ icon }) => {
         </Link>
         <Link to="/languages">
           <StyledLink>
-            <img height="40px" src={icon} alt="an icon" />
+            <img
+              height="40px"
+              src={
+                icon ||
+                "https://img.icons8.com/dusk/64/000000/question-mark.png"
+              }
+              alt="language icon"
+            />
           </StyledLink>
         </Link>
       </Header>
