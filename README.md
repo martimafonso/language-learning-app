@@ -3,9 +3,14 @@
 This application is created using React, using hooks, styled-components, and react-router-dom.
 My Goal for this is to become something that people can actually use to get them started in their prefered language.
 
-## Some Difficulties
+# Development
 
-Firstly, I had to learn react-router-dom. Initially I had just used a hook to change the page to the wanted routes.
+To run locally, execute `npm start`, application will open under `localhost:3000`
+
+
+# Some Difficulties
+
+Firstly, I had to learn react-router-dom. Initially I had just used a hook to change the page to render the wanted components.
 But luckily, before this gets too big, I implemented the routes and it was actually extremely easy to understand how to use it.
 
 Secondly, I hadn't had to much exposure to using state (I'm new to React) and I've gotten somewhat comfortable using hooks.
