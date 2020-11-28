@@ -1,4 +1,4 @@
-# Language Learning Application with React.js
+# About
 
 This application is created using React, using hooks, styled-components, and react-router-dom.
 My Goal for this is to become something that people can actually use to get them started in their prefered language.
