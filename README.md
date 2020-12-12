@@ -34,15 +34,29 @@ Basic Setup
 :
 
 (Open With Github Desktop)
+
 Install Node JS
+
 open cmd
+
 type: npm Start
-('react-scripts' is not recognized as an internal or external command, operable program or batch file. | type: npm install react-scripts)
+
+('react-scripts' is not recognized as an internal or external command, operable program or batch file. | type: 
+
+npm install react-scripts)
+
 (npm ERR! cb() never called|!npm cache verify)
+
 Install a Studio like VS Code
+
 Visual Studio:
+
     Open Folder
+
     Download GIT
+
     Ctrl + Ç (Terminal Tab)
+
     npm start
+
 Profit
