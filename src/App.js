@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import Contact from "./components/contact-components/Contact";
+import Gay from "./components/gay-af/gay.js"
 import Friends from "./components/friends-components/Friends";
 import Languages from "./components/languages-components/Languages";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -16,7 +17,7 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path="/" render={MainHeader} />
+          <Route component={Gay} exact path="/" render={MainHeader} />
           <Route
             path="/french"
             render={() => <FrenchPathHandler icon={frenchIcon} />}
