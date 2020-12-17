@@ -5,7 +5,8 @@ const Gay = () => {
   return (
     <div>
       <MainHeader />
-      <h2> Gay </h2>
+      <h2> Welcome to the Language App! </h2>
+      <p>You can learn a lot of things here!</p>
     </div>
   );
 };
