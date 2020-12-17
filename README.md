@@ -23,3 +23,40 @@ in order for this to work. This makes it so, in the matching game components, yo
 item and fully disappears when that second item gets selected. Also when 2 items are selected and the items DO NOT MATCH a component appears
 telling you what you selected was wrong. Also if you choose 2 correct items the opacity on each item gets changed to be more invisible, letting
 the user know you got them correct.
+
+
+Basic Setup
+
+(Optional Steps)
+
+(common errors | Possible Resolution: )
+
+:
+
+(Open With Github Desktop)
+
+Install Node JS
+
+open cmd
+
+type: npm Start
+
+('react-scripts' is not recognized as an internal or external command, operable program or batch file. | type: 
+
+npm install react-scripts)
+
+(npm ERR! cb() never called|!npm cache verify)
+
+Install a Studio like VS Code
+
+Visual Studio:
+
+    Open Folder
+
+    Download GIT
+
+    Ctrl + Ç (Terminal Tab)
+
+    npm start
+
+Profit
